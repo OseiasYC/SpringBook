@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" style="align-items: flex-start;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>SpringLab</title>
+</head>
+
+<body>
+    <h2 style="margin: 0px;">Book a Lab</h2>
+    <p style="margin-bottom: 15px;">{id} - {name}</p>
+    <form>
+        <div class="box">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="inputLab">Lab</label>
+                    <select id="inputLab" class="form-control">
+                        <option disabled selected>-</option>
+                        <option>LAMI 1</option>
+                        <option>LAMI 2</option>
+                        <option>LAMI 3</option>
+                        <option>LAMI 4</option>
+                    </select>
+                </div>
+
+                <label for="datepicker">Date</label>
+                <input type="date" class="form-control" id="datepicker" min="2023-03-11" oninput="getDate()">
+            </div>
+
+            <div class="form-row" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="form-time" style="display: flex;">
+                    <div class="form-group"></div>
+                    <div class="time">
+                        <label for="initial-time">Initial time</label>
+                        <input type="text" class="form-control flatpickr-time" id="initial-time" onclick="verify()">
+                    </div>
+                    <div class="time">
+                        <label for="final-time">Final time</label>
+                        <input type="text" class="form-control flatpickr-time" id="final-time" onclick="verify()">
+                    </div>
+                </div>
+                <p id="message">{message}</p>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" style="width: 200px; margin-top: 5px;">Book it</button>
+    </form>
+
+    <h2>Labs Schedules</h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Hour</th>
+                <th scope="col">Professor</th>
+                <th scope="col">Lab</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{dd/mm/aaaa}</th>
+                <td>{hh:mm} - {hh:mm}</td>
+                <td>{name}</td>
+                <td>{lab}</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../static/script.js"></script>
+</body>
+
+</html>
