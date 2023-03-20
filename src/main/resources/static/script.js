@@ -18,9 +18,10 @@ function getDate() {
     });
 
     function minTime() {
-        if (document.querySelector("#datepicker").value == null) {
+        if (document.querySelector("#datepicker").value == null || document.querySelector("#datepicker").value != nowDate) {
             return null;
-        } else {
+        }
+        else {
             document.querySelector("#message").innerText = "";
             return (now.getHours() + ":" + now.getMinutes())
         }
@@ -29,7 +30,8 @@ function getDate() {
 
 function verify() {
     if (!document.querySelector("#datepicker").value) {
-        document.querySelector("#message").innerText = "Set the date, first!";
+        document.querySelector("#message").innerText = "Put date, first!";
     }
 }
 
+getDate();

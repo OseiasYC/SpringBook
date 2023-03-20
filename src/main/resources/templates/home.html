@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" style="align-items: flex-start;">
+<html lang="en" style="align-items: flex-start;" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="utf-8">
@@ -30,7 +30,7 @@
                 </div>
 
                 <label for="datepicker">Date</label>
-                <input type="date" class="form-control" id="datepicker" min="2023-03-11" oninput="getDate()">
+                <input type="date" class="form-control" id="datepicker" min="" oninput="getDate()" max="2024-01-01">
             </div>
 
             <div class="form-row" style="display: flex; flex-direction: column; justify-content: space-between;">
