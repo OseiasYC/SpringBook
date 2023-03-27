@@ -83,4 +83,5 @@ public class Lab {
     public void setLocation(String location) {
         this.location = location;
     }
+
 }
