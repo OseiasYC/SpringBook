@@ -83,4 +83,13 @@ public class Lab {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
 }
