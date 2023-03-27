@@ -1,0 +1,111 @@
+
+html {
+    height: 100%;
+    display: flex;
+    padding: 45px 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+	background: #eee !important;
+    width: 780px;
+    min-width: 350px;
+}
+
+thead{
+    background-color: rgb(70, 70, 70);
+    color: #eee;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+}
+
+select {
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 2.5l.75 .75 .75-.75" fill="grey"/></svg>') no-repeat right -5px center;
+    padding-right: 1.5em;
+}
+
+select{
+    cursor: pointer;
+}
+
+input{
+    cursor: text;
+}
+
+p{
+    margin: 0;
+    color: red;
+}
+
+.box{
+    padding-bottom: 5px;
+    display: flex;
+}
+
+.form-control{
+    width: 95%;
+}
+
+.form-row{
+    margin-right: 5px;
+    width: 35%;
+}
+
+.time{
+    margin-right: 10px;
+}
+
+.flatpickr-calendar.static.open {
+    width: 95%;
+}
+
+.form-signin {
+    padding: 15px 35px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);  
+}
+
+.form-control:disabled, .form-control[readonly]{
+    background-color: #fff;
+    cursor: text;
+}
+
+.checkbox {
+	font-weight: normal;
+}
+
+.datepicker-dropdown {
+    cursor: pointer;
+}
+.datepicker-dropdown {
+    cursor: hand;
+}
+
+.form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	@include box-sizing(border-box);
+}
+
+input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+	margin-bottom: 20px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
