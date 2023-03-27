@@ -1,39 +1,63 @@
 package com.ucsal.springlab.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "lab")
 public class Lab {
+
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private String desc;
+    @Column(name = "lami", nullable = false)
+    private String lami;
 
-    @ManyToOne
-    private Professor professor;
+    @Column(name = "description", nullable = false)
+    private String description;
 
+    @Column(name = "status", nullable = false)
     private boolean status;
 
-    private int pcs;
+    @Column(name = "desktops", nullable = false)
+    private int desktops;
 
+    @Column(name = "location", nullable = false)
     private String location;
 
-    public int getId() {
+    @ManyToOne
+    @JoinColumn(name = "professor_id", nullable = false)
+    private Professor professor;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getLami() {
+        return lami;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setLami(String lami) {
+        this.lami = lami;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public boolean isStatus() {
@@ -43,13 +67,13 @@ public class Lab {
     public void setStatus(boolean status) {
         this.status = status;
     }
-
-    public int getPcs() {
-        return pcs;
+    
+    public int getDesktops() {
+        return desktops;
     }
 
-    public void setPcs(int pcs) {
-        this.pcs = pcs;
+    public void setDesktops(int desktops) {
+        this.desktops = desktops;
     }
 
     public String getLocation() {
@@ -59,5 +83,4 @@ public class Lab {
     public void setLocation(String location) {
         this.location = location;
     }
-
 }
