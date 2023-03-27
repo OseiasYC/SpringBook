@@ -50,6 +50,7 @@ p{
 
 .form-control{
     width: 95%;
+    border-radius: 5px;
 }
 
 .form-row{
@@ -77,6 +78,7 @@ p{
 .form-control:disabled, .form-control[readonly]{
     background-color: #fff;
     cursor: text;
+    border-radius: 5px;
 }
 
 .checkbox {
