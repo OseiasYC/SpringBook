@@ -55,5 +55,5 @@ public class Admin { // Talvez esta classe seja excluída por causa de uma featu
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
 }
