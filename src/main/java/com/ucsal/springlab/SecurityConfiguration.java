@@ -1,5 +1,6 @@
 package com.ucsal.springlab;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,10 +14,13 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration{
+public class SecurityConfiguration {
+
+    @Autowired
+    private CustomHandler customHandler;
 
     @Bean
-    public static BCryptPasswordEncoder passwordEncoder(){
+    public static BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -24,32 +28,35 @@ public class SecurityConfiguration{
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().requestMatchers("/static/**");
     }
-    
+
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(
-                    authorizeConfig -> {
-                        authorizeConfig.requestMatchers("/public").permitAll();
-                        authorizeConfig.anyRequest().authenticated();
-                    }
-                )
+                        authorizeConfig -> {
+                            authorizeConfig.requestMatchers("/public").permitAll();
+                            authorizeConfig.requestMatchers("/home").hasAuthority("USER");
+                            authorizeConfig.requestMatchers("/admin").hasAuthority("ADMIN");
+                            authorizeConfig.anyRequest().authenticated();
+                        })
                 .formLogin(form -> form
                         .loginPage("/login")
+                        .defaultSuccessUrl("/home")
+                        .successHandler(customHandler)
                         .permitAll())
-        .build();
+                .build();
     }
-    
+
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails professor = User.withUsername("professor")
-                .password(passwordEncoder().encode("professor"))
-                .roles("USER")
+        UserDetails fernando = User.withUsername("fernando")
+                .password(passwordEncoder().encode("fernando"))
+                .authorities("USER")
                 .build();
-        UserDetails admin = User.withUsername("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("ADMIN")
+        UserDetails osvaldo = User.withUsername("osvaldo")
+                .password(passwordEncoder().encode("osvaldo"))
+                .authorities("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(admin, professor);
+        return new InMemoryUserDetailsManager(osvaldo, fernando);
     }
 }

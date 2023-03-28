@@ -14,7 +14,7 @@
 
 <body>
     <h2 style="margin: 0px;">Book a Lab</h2>
-    <p style="margin-bottom: 15px;">{id} - {name}</p>
+    <p style="margin-bottom: 15px; text-transform: capitalize;">Welcome, <span th:text="${user.username}"></span>.</p>
     <form>
         <div class="box">
             <div class="form-row">
@@ -67,7 +67,7 @@
         <button class="btn btn-primary" type="submit" style="width: 200px; margin-top: 5px;">Book it</button>
     </form>
 
-    <h2>Labs Schedules</h2>
+    <h2>Approved Labs Schedules</h2>
     <table class="table">
         <thead class="thead-dark">
             <tr>
