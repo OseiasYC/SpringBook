@@ -58,6 +58,10 @@ p{
     width: 35%;
 }
 
+.form-row *{
+    margin-top: 2.5px;
+}
+
 .time{
     margin-right: 10px;
 }
@@ -97,6 +101,17 @@ p{
 	font-size: 16px;
 	height: auto;
 	@include box-sizing(border-box);
+}
+
+#message{
+    height: 37.6px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+#form-home{
+    display: flex;
+    
 }
 
 input[type="text"] {

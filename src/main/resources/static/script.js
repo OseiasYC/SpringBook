@@ -1,3 +1,8 @@
+const button = document.querySelector('#button');
+const datepicker = document.querySelector('#datepicker');
+const elements = document.querySelectorAll("input, select");
+const message = document.querySelector("#message");
+
 function getDate() {
     var now = new Date();
     var year = now.getFullYear();
@@ -15,23 +20,39 @@ function getDate() {
             static: true,
             time_24hr: true,
         });
+        
+        $('#button').click(function () {
+            var inital = $('#initial-time').val();
+            var final = $('#final-time').val();
+            if (inital == '' || final == '') {
+                message.innerText = "Please, set a time"
+                return false;
+            } else {
+                $('form').submit();
+            }
+        });
     });
 
+
+
+
     function minTime() {
-        if (document.querySelector("#datepicker").value == null || document.querySelector("#datepicker").value != nowDate) {
+        if (datepicker.value == null || datepicker.value != nowDate) {
             return null;
-        }
-        else {
-            document.querySelector("#message").innerText = "";
+        } else {
             return (now.getHours() + ":" + now.getMinutes())
         }
     }
 }
 
 function verify() {
-    if (!document.querySelector("#datepicker").value) {
-        document.querySelector("#message").innerText = "Put date, first!";
+    if (!datepicker.value) {
+        message.innerText = "Put date, first";
     }
+}
+
+function allow() {
+    message.innerText = "";
 }
 
 getDate();
