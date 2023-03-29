@@ -1,6 +1,5 @@
 const button = document.querySelector('#button');
 const datepicker = document.querySelector('#datepicker');
-const elements = document.querySelectorAll("input, select");
 const message = document.querySelector("#message");
 
 function getDate() {
@@ -21,12 +20,11 @@ function getDate() {
             time_24hr: true,
         });
         
-        $('#button').click(function () {
-            var inital = $('#initial-time').val();
-            var final = $('#final-time').val();
-            if (inital == '' || final == '') {
-                message.innerText = "Please, set a time"
-                return false;
+        $('#button').click(function (event) {
+            event.preventDefault();
+            if ($('#initial-time').val() == '' || $('#final-time') == '' || $('#inputLab').val() == null || $('#inputSubject').val() == null) {
+                $('#message').text("Please, check all the inputs");
+                console.log($('#inputLab').val());
             } else {
                 $('form').submit();
             }
@@ -48,11 +46,13 @@ function getDate() {
 function verify() {
     if (!datepicker.value) {
         message.innerText = "Put date, first";
+        button.disabled = true;
     }
 }
 
 function allow() {
     message.innerText = "";
+    button.disabled = false;
 }
 
 getDate();

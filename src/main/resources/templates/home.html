@@ -22,8 +22,8 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="inputLab">Lab</label>
-                    <select id="inputLab" class="form-control" required>
-                        <option disabled selected></option>
+                    <select id="inputLab" class="form-control">
+                        <option disabled selected>-</option>
                         <option>LAMI 1 (B413)</option>
                         <option>LAMI 2 (B414)</option>
                         <option>LAMI 3 (B415)</option>
@@ -40,8 +40,8 @@
 
                 <div class="form-group">
                     <label for="inputSubject">Subject</label>
-                    <select id="inputSubject" class="form-control" required>
-                        <option disabled selected></option>
+                    <select id="inputSubject" class="form-control">
+                        <option disabled selected>-</option>
                         <option>Arq. e Org. de Computadores</option>
                     </select>
                 </div>
@@ -52,21 +52,22 @@
 
 
                 <label for="datepicker">Date</label>
-                <input type="date" class="form-control" id="datepicker" min="" oninput="getDate()" max="2024-01-01" onchange="allow()" required>
+                <input type="date" class="form-control" id="datepicker" min="" oninput="getDate()" max="2024-01-01" onchange="allow()">
                 <div class="form-time" style="display: flex;">
                     <div class="form-group"></div>
                     <div class="time">
                         <label for="initial-time">Initial time</label>
-                        <input type="number" class="form-control flatpickr-time" id="initial-time" required>
+                        <input type="number" class="form-control flatpickr-time" id="initial-time" onclick="verify()">
                     </div>
                     <div class="time">
                         <label for="final-time">Final time</label>
-                        <input type="number" class="form-control flatpickr-time" id="final-time" required>
+                        <input type="number" class="form-control flatpickr-time" id="final-time" onclick="verify()">
                     </div>
                 </div>
             </div>
         </div>
         <button class="btn btn-primary" type="submit" style="width: 200px; margin-top: 5px;" id="button">Book it</button>
+        <p id="message"></p>
     </form>
 
     <h2>Approved Labs Schedules</h2>
