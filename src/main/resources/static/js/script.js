@@ -3,9 +3,9 @@ const datepicker = document.querySelector("#datepicker");
 const message = document.querySelector("#message");
 const initial = document.querySelector("#initial-time");
 const final = document.querySelector("#final-time");
-var now = new Date();
 
 function getDate() {
+  var now = new Date();
   var year = now.getFullYear();
   var month = (now.getMonth() + 1).toString().padStart(2, "0");
   var day = now.getDate().toString().padStart(2, "0");
@@ -46,6 +46,10 @@ function finalTime() {
 //Checker
 $("#button").click(function (event) {
   event.preventDefault();
+  const selectedInitialTime = new Date(datepicker.value + "T" + initial.value + ":00");
+  const selectedFinalTime = new Date(datepicker.value + "T" + initial.value + ":00");
+  var now = new Date();
+
   if (
     !initial.value ||
     !final.value ||
@@ -55,10 +59,15 @@ $("#button").click(function (event) {
   ) {
     $("#message").text("Please, check all the inputs");
   } else {
-    $("form").submit();
+    if (initial.value || final.value) {
+      if (selectedInitialTime < now.getTime() || selectedFinalTime < now.getTime()) {
+        $("#message").text("You can't select past time");
+      } else {
+        $("form").submit();
+      }
+    }
+
   }
 });
 
 getDate();
-
-setTimeout(() => location.reload(), 300000);
