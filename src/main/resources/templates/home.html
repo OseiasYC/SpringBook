@@ -15,10 +15,14 @@
 </head>
 
 <body>
-  <h2 style="margin: 0px">Book a Lab</h2>
-  <p style="margin-bottom: 15px; text-transform: capitalize">
-    Welcome, <span th:text="${user.username}"></span>
-  </p>
+  <header>
+    <img src="../static/images/favicon.ico" alt="SpringLab icon" srcset="">
+    <div>
+      <h1 style="margin: 0px; margin-bottom: -5px;">Book a Lab</h1>
+      <p style="text-transform: capitalize"> Welcome, <span th:text="${user.username}"></span></p>
+    </div>
+  </header>
+
   <form id="form-home">
     <div class="box">
       <div class="form-row">
@@ -76,13 +80,15 @@
     <p id="message"></p>
   </form>
 
-  <h2>Approved Labs Schedules</h2>
+  <h2>Approved labs schedules</h2>
   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Date</th>
         <th scope="col">Hour</th>
         <th scope="col">Professor</th>
+        <th scope="col">Subject</th>
+        <th scope="col">LAMI</th>
         <th scope="col">Lab</th>
       </tr>
     </thead>
@@ -90,8 +96,10 @@
       <tr>
         <th scope="row">{dd/mm/aaaa}</th>
         <td>{hh:mm} - {hh:mm}</td>
-        <td>{name}</td>
-        <td>{lab}</td>
+        <td>{professor}</td>
+        <td>{subject}</td>
+        <td>{LAMI}</td>
+        <td>{Lab}</td>
       </tr>
     </tbody>
   </table>

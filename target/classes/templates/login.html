@@ -18,12 +18,12 @@
     <title>Login</title>
   </head>
 
-  <body style="max-width: 400px">
-    <div class="wrapper">
-      <form class="form-signin" th:action="@{login}" method="post">
-        <h2 class="form-signin-heading">SpringLab</h2>
-        <p style="margin-bottom: 0px">please login</p>
-        <p style="margin-bottom: 15px" th:if="${param.error}">invalid user or password</p>
+  <body>
+    <div class="wrapper" style="display: flex; justify-content: center">
+      <form class="form-signin" th:action="@{login}" method="post" style="width: 400px;">
+        <h2 class="form-signin-heading" style="margin: 5px;">SpringLab</h2>
+        <sub style="margin-bottom: 15px">please login</sub>
+        <sub style="margin-bottom: 15px; color: red" th:if="${param.error}">invalid user or password</sub>
         <input
           style="margin-top: 10px"
           type="text"
