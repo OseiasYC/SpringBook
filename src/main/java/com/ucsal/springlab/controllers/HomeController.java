@@ -16,7 +16,7 @@ import com.ucsal.springlab.services.BookingService;
 public class HomeController {
 
     @Autowired
-    BookingService bookingService;
+    private BookingService bookingService;
 
     @GetMapping("/")
     public ModelAndView home(@AuthenticationPrincipal UserDetails user) {
