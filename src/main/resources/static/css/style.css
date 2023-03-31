@@ -67,6 +67,10 @@ sub{
   font-size: 13px;
 }
 
+.soft-messages {
+  color: deepskyblue;
+}
+
 .box {
   padding-bottom: 5px;
   display: flex;
@@ -95,12 +99,16 @@ sub{
 }
 
 .form-signin {
-  padding: 45px 35px 65px;
+  padding: 35px 35px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-signin-img {
+  padding: 0;
 }
 
 .form-control:disabled,
