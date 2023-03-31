@@ -1,5 +1,7 @@
 package com.ucsal.springlab.models;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,17 +18,17 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JoinColumn(name = "name_professor", nullable = false)
+    @Column(name = "name_professor", nullable = false)
     private Professor professor;
 
     @Column(name = "subject", nullable = false)
     private String subject;
 
-    @JoinColumn(name = "lami_lab", nullable = false)
+    @Column(name = "lami_lab", nullable = false)
     private Lab lab;
 
-    @Column(name = "date_day", nullable = false) // FIXME resolver o tipo da data, pois está somente como String
-    private String dateDay;
+    @Column(name = "date_day", nullable = false) // TODO: resolver o tipo da data, pois está somente como String
+    private LocalDateTime dateDay;
 
     @Column(name = "time_init", nullable = false) // FIXME resolver o tipo do tempo, pois está somente como String
     private String timeInit;
@@ -69,11 +71,11 @@ public class Booking {
         this.lab = lab;
     }
 
-    public String getDateDay() {
+    public LocalDateTime getDateDay() {
         return dateDay;
     }
 
-    public void setDateDay(String dateDay) {
+    public void setDateDay(LocalDateTime dateDay) {
         this.dateDay = dateDay;
     }
 

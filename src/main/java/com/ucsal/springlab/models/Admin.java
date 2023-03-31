@@ -18,7 +18,7 @@ public class Admin { // Talvez esta classe seja excluída por causa de uma featu
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "login", nullable = false)
+    @Column(name = "login", unique = true, nullable = false)
     private String login;
 
     @Column(name = "password", nullable = false)

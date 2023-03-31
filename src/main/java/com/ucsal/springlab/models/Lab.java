@@ -5,8 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,7 +16,7 @@ public class Lab {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "lami", nullable = false)
+    @Column(name = "lami", unique = true, nullable = false)
     private String lami;
 
     @Column(name = "description", nullable = false)
@@ -32,8 +31,8 @@ public class Lab {
     @Column(name = "location", nullable = false)
     private String location;
 
-    @ManyToOne
-    @JoinColumn(name = "professor_id", nullable = false)
+    @ManyToMany
+    @Column(name = "professor_id", nullable = false)
     private Professor professor;
 
     public Integer getId() {
