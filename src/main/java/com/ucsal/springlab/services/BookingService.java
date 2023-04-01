@@ -9,7 +9,7 @@ import com.ucsal.springlab.repositories.BookingRepository;
 @Service
 public class BookingService {
 
-    @Autowired
+    @Autowired(required = false)
     private BookingRepository bookingRepository;
 
     public void save(Booking booking) {

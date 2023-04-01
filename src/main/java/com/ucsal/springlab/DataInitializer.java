@@ -15,9 +15,9 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String[] args) throws Exception {
-        Booking booking = new Booking();
-        booking.setSubject("Arquitetura de Software");
+        // Booking booking = new Booking();
+        // booking.setSubject("Arquitetura de Software");
 
-        bookingService.save(booking);
+        // bookingService.save(booking);
     }
 }
