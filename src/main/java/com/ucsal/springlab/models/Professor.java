@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,6 +29,18 @@ public class Professor {
 
     @Column(name = "subjects", nullable = false)
     private List<String> subjects;
+    
+    @OneToMany
+    @Column(name = "bookings", nullable = false)
+    private List<Booking> bookins; 
+
+    public List<Booking> getBookins() {
+		return bookins;
+	}
+
+	public void setBookins(List<Booking> bookins) {
+		this.bookins = bookins;
+	}
 
     public Integer getId() {
         return id;

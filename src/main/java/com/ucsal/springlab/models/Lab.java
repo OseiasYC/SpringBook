@@ -1,12 +1,13 @@
 package com.ucsal.springlab.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,9 +33,21 @@ public class Lab {
     @Column(name = "location", nullable = false)
     private String location;
 
-    @ManyToOne
-    @JoinColumn(name = "professor_id", nullable = false)
-    private Professor professor;
+//    @ManyToOne
+//    @JoinColumn(name = "professor_id", nullable = false)
+//    private Professor professor;
+    
+    @OneToMany
+    @Column(name = "bookings", nullable = false)
+    private List<Booking> bookins; 
+
+    public List<Booking> getBookins() {
+		return bookins;
+	}
+
+	public void setBookins(List<Booking> bookins) {
+		this.bookins = bookins;
+	}
 
     public Integer getId() {
         return id;
@@ -82,14 +95,6 @@ public class Lab {
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
     }
 
 }
