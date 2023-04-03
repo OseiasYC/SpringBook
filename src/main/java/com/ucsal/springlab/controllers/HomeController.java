@@ -20,4 +20,10 @@ public class HomeController {
     public String login() {
         return "login";
     }
+    
+ // @PostMapping("/")
+    // public String saveBooking(@ModelAttribute("booking") Booking booking) {
+    //     bookingService.save(booking);
+    //     return "redirect:/";
+    // }
 }
