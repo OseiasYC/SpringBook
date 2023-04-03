@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,13 +16,13 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @ManyToOne
     @JoinColumn(name = "name_professor", nullable = false)
     private Professor professor;
 
     @Column(name = "subject", nullable = false)
     private String subject;
-
+    @ManyToOne
     @JoinColumn(name = "lami_lab", nullable = false)
     private Lab lab;
 
