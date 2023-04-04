@@ -14,33 +14,21 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "BOOKS")
-public class Booking implements Serializable{
+public class Booking implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     @ManyToOne
     @JoinColumn(nullable = false)
     private Professor professor;
-
+    
     @Column(nullable = false)
     private String subject;
-
+    
     @ManyToOne
     @JoinColumn(nullable = false)
     private Lab lab;
@@ -53,14 +41,26 @@ public class Booking implements Serializable{
     
     @Column(nullable = false)
     private LocalDateTime timeEnd;
-
+    
     @Column(nullable = false)
     private boolean approved;
+    
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Professor getProfessor() {
         return professor;
     }
-
+    
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
