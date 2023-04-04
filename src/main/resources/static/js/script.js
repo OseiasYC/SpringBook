@@ -70,4 +70,6 @@ $("#button").click(function (event) {
   }
 });
 
+$('#form-home').removeClass("hidden");
+
 getDate();

@@ -67,6 +67,10 @@ sub{
   font-size: 13px;
 }
 
+.hidden{
+  display: none;
+}
+
 .soft-messages {
   color: deepskyblue;
 }

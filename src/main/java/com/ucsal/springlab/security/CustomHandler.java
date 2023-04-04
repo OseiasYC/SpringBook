@@ -1,4 +1,4 @@
-package com.ucsal.springlab;
+package com.ucsal.springlab.security;
 
 import java.io.IOException;
 import java.util.Set;
