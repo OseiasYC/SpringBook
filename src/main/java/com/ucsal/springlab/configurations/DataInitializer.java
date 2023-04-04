@@ -1,4 +1,4 @@
-package com.ucsal.springlab;
+package com.ucsal.springlab.configurations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,15 +29,24 @@ public class DataInitializer implements CommandLineRunner {
 
     private void saveLab() {
         Lab lab1 = new Lab();
+        Lab lab2 = new Lab();
 
-        lab1.setId(01);
+        lab1.setId(1);
         lab1.setLami("LAMI 1");
         lab1.setDescription("Laboratório de Micro Informática 1");
-        lab1.setStatus(false);
+        lab1.setStatus(true);
         lab1.setDesktops(20);
         lab1.setLocation("B413");
 
+        lab2.setId(2);
+        lab2.setLami("LAMI 2");
+        lab2.setDescription("Laboratório de Micro Informática 2");
+        lab2.setStatus(true);
+        lab2.setDesktops(30);
+        lab2.setLocation("B414");
+
         labRepository.save(lab1);
+        labRepository.save(lab2);
     }
 
     private void saveProfessor() {

@@ -1,4 +1,4 @@
-package com.ucsal.springlab.security;
+package com.ucsal.springlab.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

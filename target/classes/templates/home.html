@@ -28,10 +28,11 @@
     <div class="box">
       <div class="form-row">
         <div class="form-group">
-          <label for="inputLab">Lab</label>
+          <label for="inputLab">Lab (available)</label>
           <select id="inputLab" class="form-control">
             <option disabled selected>-</option>
-            <option>LAMI 1 (B413)</option>
+            <option th:each="lab : ${labs}" th:value="${lab}" th:text="${lab}"></option>
+            <!-- <option>LAMI 1 (B413)</option>
             <option>LAMI 2 (B414)</option>
             <option>LAMI 3 (B415)</option>
             <option>LAMI 4 (B418)</option>
@@ -41,7 +42,7 @@
             <option>LAMI 8 (B403)</option>
             <option>LAMI 9 (B404)</option>
             <option>LAMI 10 (B405)</option>
-            <option>LAMI WEX (B417)</option>
+            <option>LAMI WEX (B417)</option> -->
           </select>
         </div>
 
