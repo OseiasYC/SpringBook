@@ -11,9 +11,11 @@ import jakarta.persistence.Id;
 @Entity
 public class Professor {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @Column(nullable = false)
     private String name;
@@ -22,16 +24,17 @@ public class Professor {
     private String login;
 
     @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false)
     private List<String> subjects;
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
     
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -49,14 +52,6 @@ public class Professor {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public List<String> getSubjects() {
