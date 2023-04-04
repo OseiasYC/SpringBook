@@ -12,7 +12,7 @@ public class BookingService {
     @Autowired(required = false)
     private BookingRepository bookingRepository;
 
-    public void save(Booking booking) {
+    public void saveBooking(Booking booking) {
         bookingRepository.save(booking);
     }
 }
