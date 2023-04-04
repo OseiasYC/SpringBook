@@ -5,36 +5,45 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+<<<<<<< Updated upstream
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+=======
+>>>>>>> Stashed changes
 
 @Entity
-@Table(name = "lab")
 public class Lab {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+<<<<<<< Updated upstream
     @Column(name = "lami", unique = true, nullable = false)
+=======
+    @Column(nullable = false)
+>>>>>>> Stashed changes
     private String lami;
 
-    @Column(name = "description", nullable = false)
+    @Column(nullable = false)
     private String description;
 
-    @Column(name = "status", nullable = false)
+    @Column(nullable = false)
     private boolean status;
 
-    @Column(name = "desktops", nullable = false)
+    @Column(nullable = false)
     private int desktops;
 
-    @Column(name = "location", nullable = false)
+    @Column(nullable = false)
     private String location;
 
+<<<<<<< Updated upstream
     @ManyToMany
     @Column(name = "professor_id", nullable = false)
     private Professor professor;
 
+=======
+>>>>>>> Stashed changes
     public Integer getId() {
         return id;
     }

@@ -8,35 +8,51 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+<<<<<<< Updated upstream
 import jakarta.persistence.Table;
+=======
+import jakarta.persistence.ManyToOne;
+>>>>>>> Stashed changes
 
 @Entity
-@Table(name = "booking")
 public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+<<<<<<< Updated upstream
     @Column(name = "name_professor", nullable = false)
+=======
+    @ManyToOne
+    @JoinColumn(nullable = false)
+>>>>>>> Stashed changes
     private Professor professor;
 
-    @Column(name = "subject", nullable = false)
+    @Column(nullable = false)
     private String subject;
 
+<<<<<<< Updated upstream
     @Column(name = "lami_lab", nullable = false)
     private Lab lab;
 
     @Column(name = "date_day", nullable = false) // TODO: resolver o tipo da data, pois está somente como String
+=======
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Lab lab;
+
+    @Column(nullable = false)
+>>>>>>> Stashed changes
     private LocalDateTime dateDay;
 
-    @Column(name = "time_init", nullable = false) // FIXME resolver o tipo do tempo, pois está somente como String
-    private String timeInit;
+    @Column(nullable = false)
+    private LocalDateTime timeInit;
 
-    @Column(name = "time_end", nullable = false) // FIXME resolver o tipo do tempo, pois está somente como String
-    private String timeEnd;
+    @Column(nullable = false)
+    private LocalDateTime timeEnd;
 
-    @Column(name = "approved", nullable = false)
+    @Column(nullable = false)
     private boolean approved;
 
     public Integer getId() {
@@ -79,19 +95,19 @@ public class Booking {
         this.dateDay = dateDay;
     }
 
-    public String getTimeInit() {
+    public LocalDateTime getTimeInit() {
         return timeInit;
     }
 
-    public void setTimeInit(String timeInit) {
+    public void setTimeInit(LocalDateTime timeInit) {
         this.timeInit = timeInit;
     }
 
-    public String getTimeEnd() {
+    public LocalDateTime getTimeEnd() {
         return timeEnd;
     }
 
-    public void setTimeEnd(String timeEnd) {
+    public void setTimeEnd(LocalDateTime timeEnd) {
         this.timeEnd = timeEnd;
     }
 
