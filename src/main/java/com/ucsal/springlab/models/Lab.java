@@ -1,53 +1,32 @@
 package com.ucsal.springlab.models;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "lab")
 public class Lab {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "lami", nullable = false)
+    @Column(nullable = false)
     private String lami;
 
-    @Column(name = "description", nullable = false)
+    @Column(nullable = false)
     private String description;
 
-    @Column(name = "status", nullable = false)
+    @Column(nullable = false)
     private boolean status;
 
-    @Column(name = "desktops", nullable = false)
+    @Column(nullable = false)
     private int desktops;
 
-    @Column(name = "location", nullable = false)
+    @Column(nullable = false)
     private String location;
-
-//    @ManyToOne
-//    @JoinColumn(name = "professor_id", nullable = false)
-//    private Professor professor;
-    
-    @OneToMany
-    @Column(name = "bookings", nullable = false)
-    private List<Booking> bookins; 
-
-    public List<Booking> getBookins() {
-		return bookins;
-	}
-
-	public void setBookins(List<Booking> bookins) {
-		this.bookins = bookins;
-	}
 
     public Integer getId() {
         return id;
