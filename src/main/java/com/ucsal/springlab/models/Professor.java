@@ -7,41 +7,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "professor")
 public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false)
     private String name;
 
-    @Column(name = "login", nullable = false)
+    @Column(nullable = false)
     private String login;
 
-    @Column(name = "password", nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @Column(name = "subjects", nullable = false)
+    @Column(nullable = false)
     private List<String> subjects;
     
-    @OneToMany
-    @Column(name = "bookings", nullable = false)
-    private List<Booking> bookins; 
-
-    public List<Booking> getBookins() {
-		return bookins;
-	}
-
-	public void setBookins(List<Booking> bookins) {
-		this.bookins = bookins;
-	}
-
     public Integer getId() {
         return id;
     }

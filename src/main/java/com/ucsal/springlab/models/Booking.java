@@ -1,5 +1,7 @@
 package com.ucsal.springlab.models;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,37 +9,37 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "booking")
 public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
-    @JoinColumn(name = "name_professor", nullable = false)
+    @JoinColumn(nullable = false)
     private Professor professor;
 
-    @Column(name = "subject", nullable = false)
+    @Column(nullable = false)
     private String subject;
+
     @ManyToOne
-    @JoinColumn(name = "lami_lab", nullable = false)
+    @JoinColumn(nullable = false)
     private Lab lab;
 
-    @Column(name = "date_day", nullable = false) // FIXME resolver o tipo da data, pois está somente como String
-    private String dateDay;
+    @Column(nullable = false)
+    private LocalDateTime dateSubmit;
+    
+    @Column(nullable = false)
+    private LocalDateTime timeInit;
+    
+    @Column(nullable = false)
+    private LocalDateTime timeEnd;
 
-    @Column(name = "time_init", nullable = false) // FIXME resolver o tipo do tempo, pois está somente como String
-    private String timeInit;
-
-    @Column(name = "time_end", nullable = false) // FIXME resolver o tipo do tempo, pois está somente como String
-    private String timeEnd;
-
-    @Column(name = "approved", nullable = false)
+    @Column(nullable = false)
     private boolean approved;
-
+    
     public Integer getId() {
         return id;
     }
@@ -61,36 +63,36 @@ public class Booking {
     public void setSubject(String subject) {
         this.subject = subject;
     }
-
+    
     public Lab getLab() {
         return lab;
     }
-
+    
     public void setLab(Lab lab) {
         this.lab = lab;
     }
 
-    public String getDateDay() {
-        return dateDay;
+    public LocalDateTime getDateSubmit() {
+        return dateSubmit;
     }
 
-    public void setDateDay(String dateDay) {
-        this.dateDay = dateDay;
+    public void setDateSubmit(LocalDateTime dateSubmit) {
+        this.dateSubmit = dateSubmit;
     }
 
-    public String getTimeInit() {
+    public LocalDateTime getTimeInit() {
         return timeInit;
     }
 
-    public void setTimeInit(String timeInit) {
+    public void setTimeInit(LocalDateTime timeInit) {
         this.timeInit = timeInit;
     }
 
-    public String getTimeEnd() {
+    public LocalDateTime getTimeEnd() {
         return timeEnd;
     }
 
-    public void setTimeEnd(String timeEnd) {
+    public void setTimeEnd(LocalDateTime timeEnd) {
         this.timeEnd = timeEnd;
     }
 
