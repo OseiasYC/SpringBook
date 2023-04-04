@@ -1,4 +1,4 @@
-package com.ucsal.springlab.controllers;
+package com.ucsal.springlab.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,8 +16,5 @@ public class HomeController {
         return page;
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+    
 }

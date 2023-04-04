@@ -1,5 +1,6 @@
-package com.ucsal.springlab.models;
+package com.ucsal.springlab.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -9,13 +10,29 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
-public class Booking {
+@Table(name = "BOOKS")
+public class Booking implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     @ManyToOne
     @JoinColumn(nullable = false)
@@ -39,14 +56,6 @@ public class Booking {
 
     @Column(nullable = false)
     private boolean approved;
-    
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Professor getProfessor() {
         return professor;

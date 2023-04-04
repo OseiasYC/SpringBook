@@ -1,4 +1,4 @@
-package com.ucsal.springlab.models;
+package com.ucsal.springlab.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
