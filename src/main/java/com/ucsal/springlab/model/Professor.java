@@ -2,13 +2,18 @@ package com.ucsal.springlab.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "professor")
 public class Professor {
 
     private static final long serialVersionUID = 1L;
@@ -23,13 +28,14 @@ public class Professor {
     @Column(nullable = false)
     private String login;
 
-    @Column(nullable = false)
-    private List<String> subjects;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "professor_login", referencedColumnName = "login")
+    private List<Subject> subjects;
 
     public static long getSerialversionuid() {
         return serialVersionUID;
-    }
-    
+    } 
+
     public long getId() {
         return id;
     }
@@ -54,11 +60,11 @@ public class Professor {
         this.login = login;
     }
 
-    public List<String> getSubjects() {
+    public List<Subject> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(List<String> subjects) {
+    public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
     }
 

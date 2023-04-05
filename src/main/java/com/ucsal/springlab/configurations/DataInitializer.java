@@ -9,17 +9,18 @@ import org.springframework.stereotype.Component;
 
 import com.ucsal.springlab.model.Lab;
 import com.ucsal.springlab.model.Professor;
-import com.ucsal.springlab.repository.LabRepository;
-import com.ucsal.springlab.repository.ProfessorRepository;
+import com.ucsal.springlab.model.Subject;
+import com.ucsal.springlab.service.LabService;
+import com.ucsal.springlab.service.ProfessorService;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
 
     @Autowired
-    private ProfessorRepository professorRepository;
+    private ProfessorService professorService;
 
     @Autowired
-    private LabRepository labRepository;
+    private LabService labService;
 
     @Override
     public void run(String[] args) throws Exception {
@@ -117,32 +118,39 @@ public class DataInitializer implements CommandLineRunner {
         lab11.setDesktops(30);
         lab11.setLocation("B423");
 
-        labRepository.save(lab1);
-        labRepository.save(lab2);
-        labRepository.save(lab3);
-        labRepository.save(lab4);
-        labRepository.save(lab5);
-        labRepository.save(lab6);
-        labRepository.save(lab7);
-        labRepository.save(lab8);
-        labRepository.save(lab9);
-        labRepository.save(lab10);
-        labRepository.save(lab11);
+        labService.save(lab1);
+        labService.save(lab2);
+        labService.save(lab3);
+        labService.save(lab4);
+        labService.save(lab5);
+        labService.save(lab6);
+        labService.save(lab7);
+        labService.save(lab8);
+        labService.save(lab9);
+        labService.save(lab10);
+        labService.save(lab11);
     }
 
     private void saveProfessor() {
         Professor fernando = new Professor();
-        List<String> subjectsFernando = new ArrayList<String>();
+        List<Subject> fernandoSubjects = new ArrayList<>();
+        Subject subject1 = new Subject();
+        Subject subject2 = new Subject();
+        Subject subject3 = new Subject();
 
-        subjectsFernando.add("Lógica de Programação de Algoritmos");
-        subjectsFernando.add("Governança de TI");
-        subjectsFernando.add("Arquitetura de Software");
+        subject1.setName("Governança de TI");
+        subject2.setName("Lógica de Prog. e Algoritmos");
+        subject3.setName("Arquitetura de Software");
+
+        fernandoSubjects.add(subject1);
+        fernandoSubjects.add(subject2);
+        fernandoSubjects.add(subject3);
 
         fernando.setId(01);
         fernando.setName("Fernando Cézar Reis Borges");
         fernando.setLogin("fernando");
-        fernando.setSubjects(subjectsFernando);
+        fernando.setSubjects(fernandoSubjects);
 
-        professorRepository.save(fernando);
+        professorService.save(fernando);
     }
 }

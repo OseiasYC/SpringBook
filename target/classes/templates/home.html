@@ -32,17 +32,6 @@
           <select id="inputLab" class="form-control">
             <option disabled selected>-</option>
             <option th:each="lab : ${labs}" th:value="${lab}" th:text="${lab}"></option>
-            <!-- <option>LAMI 1 (B413)</option>
-            <option>LAMI 2 (B414)</option>
-            <option>LAMI 3 (B415)</option>
-            <option>LAMI 4 (B418)</option>
-            <option>LAMI 5 (B419)</option>
-            <option>LAMI 6 (B420)</option>
-            <option>LAMI 7 (B402)</option>
-            <option>LAMI 8 (B403)</option>
-            <option>LAMI 9 (B404)</option>
-            <option>LAMI 10 (B405)</option>
-            <option>LAMI WEX (B417)</option> -->
           </select>
         </div>
 
@@ -50,7 +39,7 @@
           <label for="inputSubject">Subject</label>
           <select id="inputSubject" class="form-control">
             <option disabled selected>-</option>
-            <option>Arq. e Org. de Computadores</option>
+            <option th:each="subject : ${subjects}" th:value="${subject}" th:text="${subject}"></option>
           </select>
         </div>
       </div>
