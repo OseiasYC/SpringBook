@@ -1,5 +1,6 @@
 package com.ucsal.springlab.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ucsal.springlab.service.BookingService;
 import com.ucsal.springlab.service.LabService;
@@ -41,15 +43,18 @@ public class HomeController {
     }
 
     @PostMapping("/save")
-    public String save(HttpServletRequest request, @AuthenticationPrincipal UserDetails user) {
+    public String save(HttpServletRequest request, @AuthenticationPrincipal UserDetails user, RedirectAttributes attributes) {
         String professor = professorService.getName(user.getUsername());
         String lab = request.getParameter("inputLab");
         String subject = request.getParameter("inputSubject");
         String date = request.getParameter("datepicker");
+        LocalDateTime timeRequest = LocalDateTime.now();
         String timeInit = request.getParameter("initial-time");
         String timeFinal = request.getParameter("final-time");
 
-        bookingService.save(professor, subject, lab, date, timeInit, timeFinal);
+        bookingService.save(professor, subject, lab, date, timeRequest, timeInit, timeFinal);
+        
+        attributes.addFlashAttribute("message", "Submitted for verification.");
 
         return "redirect:/";
     }

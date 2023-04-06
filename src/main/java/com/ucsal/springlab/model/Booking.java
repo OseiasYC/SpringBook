@@ -31,6 +31,9 @@ public class Booking implements Serializable {
     private String lab;
     
     @Column(nullable = false)
+    private LocalDateTime timeRequest;
+
+    @Column(nullable = false)
     private LocalDateTime timeInit;
     
     @Column(nullable = false)
@@ -54,6 +57,14 @@ public class Booking implements Serializable {
     
     public void setProfessor(String professor) {
         this.professor = professor;
+    }
+
+    public LocalDateTime getTimeRequest() {
+        return timeRequest;
+    }
+
+    public void setTimeRequest(LocalDateTime timeRequest) {
+        this.timeRequest = timeRequest;
     }
 
     public String getSubject() {
