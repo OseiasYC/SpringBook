@@ -1,6 +1,7 @@
 package com.ucsal.springlab.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,9 @@ public class BookingService {
     booking.setTimeFinal(finalTime);
 
     bookingRepository.save(booking);
+    }
+
+    public List<Booking> findAll(){
+        return bookingRepository.findAll();
     }
 }

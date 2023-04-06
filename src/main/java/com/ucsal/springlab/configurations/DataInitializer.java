@@ -1,5 +1,6 @@
 package com.ucsal.springlab.configurations;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.ucsal.springlab.model.Booking;
 import com.ucsal.springlab.model.Lab;
 import com.ucsal.springlab.model.Professor;
 import com.ucsal.springlab.model.Subject;
+import com.ucsal.springlab.repository.BookingRepository;
 import com.ucsal.springlab.service.LabService;
 import com.ucsal.springlab.service.ProfessorService;
 
@@ -22,10 +25,14 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private LabService labService;
 
+    @Autowired
+    private BookingRepository bookingRepository;
+
     @Override
     public void run(String[] args) throws Exception {
         saveProfessor();
         saveLab();
+        saveBooking();
     }
 
     private void saveLab() {
@@ -152,5 +159,20 @@ public class DataInitializer implements CommandLineRunner {
         fernando.setSubjects(fernandoSubjects);
 
         professorService.save(fernando);
+    }
+
+    private void saveBooking(){
+        Booking booking = new Booking();
+        LocalDateTime initialTime = LocalDateTime.parse("2023-10-20T09:00:00");
+        LocalDateTime finalTime = LocalDateTime.parse("2023-10-20T09:30:00");
+
+        booking.setProfessor("Fernando Cézar Reis Borges");
+        booking.setSubject("Lógica de Prog. e Algoritmos");
+        booking.setLab("LAMI 2 (B414)");
+        booking.setTimeRequest(LocalDateTime.now());
+        booking.setTimeInit(initialTime);
+        booking.setTimeFinal(finalTime);
+
+        bookingRepository.save(booking);
     }
 }
