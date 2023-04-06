@@ -54,7 +54,7 @@ public class HomeController {
 
         bookingService.save(professor, subject, lab, date, timeRequest, timeInit, timeFinal);
         
-        attributes.addFlashAttribute("message", "Submitted for verification.");
+        attributes.addFlashAttribute("message", "Submitted for verification");
 
         return "redirect:/";
     }
