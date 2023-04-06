@@ -8,4 +8,5 @@ import com.ucsal.springlab.model.Booking;
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long>{
     
+    void deleteById(Long id);
 }

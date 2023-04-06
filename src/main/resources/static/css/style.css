@@ -20,7 +20,6 @@ thead {
 form {
   display: flex;
   flex-direction: column;
-  padding-bottom: 25px;
 }
 
 select {
