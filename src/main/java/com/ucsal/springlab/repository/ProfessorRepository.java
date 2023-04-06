@@ -13,4 +13,7 @@ public interface ProfessorRepository extends JpaRepository<Professor, Long> {
     
     @Query(value = "SELECT name FROM subject s WHERE s.professor_login = ?1", nativeQuery = true)
     List<String> getSubjects(String login);
+
+    @Query(value = "SELECT p.name FROM professor p WHERE p.login = ?1", nativeQuery = true)
+    String getName(String login);
 }

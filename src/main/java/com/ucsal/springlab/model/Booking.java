@@ -9,7 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,28 +21,20 @@ public class Booking implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
     @JoinColumn(nullable = false)
-    private Professor professor;
+    private String professor;
     
     @Column(nullable = false)
     private String subject;
     
-    @ManyToOne
     @JoinColumn(nullable = false)
-    private Lab lab;
-
-    @Column(nullable = false)
-    private LocalDateTime dateSubmit;
+    private String lab;
     
     @Column(nullable = false)
     private LocalDateTime timeInit;
     
     @Column(nullable = false)
-    private LocalDateTime timeEnd;
-    
-    @Column(nullable = false)
-    private boolean approved;
+    private LocalDateTime timeFinal;
     
     public static long getSerialversionuid() {
         return serialVersionUID;
@@ -57,11 +48,11 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Professor getProfessor() {
+    public String getProfessor() {
         return professor;
     }
     
-    public void setProfessor(Professor professor) {
+    public void setProfessor(String professor) {
         this.professor = professor;
     }
 
@@ -73,20 +64,12 @@ public class Booking implements Serializable {
         this.subject = subject;
     }
     
-    public Lab getLab() {
+    public String getLab() {
         return lab;
     }
     
-    public void setLab(Lab lab) {
+    public void setLab(String lab) {
         this.lab = lab;
-    }
-
-    public LocalDateTime getDateSubmit() {
-        return dateSubmit;
-    }
-
-    public void setDateSubmit(LocalDateTime dateSubmit) {
-        this.dateSubmit = dateSubmit;
     }
 
     public LocalDateTime getTimeInit() {
@@ -97,20 +80,12 @@ public class Booking implements Serializable {
         this.timeInit = timeInit;
     }
 
-    public LocalDateTime getTimeEnd() {
-        return timeEnd;
+    public LocalDateTime getTimeFinal() {
+        return timeFinal;
     }
 
-    public void setTimeEnd(LocalDateTime timeEnd) {
-        this.timeEnd = timeEnd;
-    }
-
-    public boolean isApproved() {
-        return approved;
-    }
-
-    public void setApproved(boolean approved) {
-        this.approved = approved;
+    public void setTimeFinal(LocalDateTime timeFinal) {
+        this.timeFinal = timeFinal;
     }
 
 }

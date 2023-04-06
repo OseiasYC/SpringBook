@@ -21,4 +21,8 @@ public class ProfessorService {
     public List<String> getSubjects(String login) {
         return professorRepository.getSubjects(login);
     }
+
+    public String getName(String login){
+    return professorRepository.getName(login);
+    }
 }

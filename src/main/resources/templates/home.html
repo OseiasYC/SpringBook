@@ -24,12 +24,12 @@
 
   <noscript><p>This page requires JS to book.</p></noscript>
   
-  <form id="form-home" class="hidden">
+  <form id="form-home" class="hidden" th:action="@{/save}" method="post">
     <div class="box">
       <div class="form-row">
         <div class="form-group">
           <label for="inputLab">Lab (available)</label>
-          <select id="inputLab" class="form-control">
+          <select id="inputLab" class="form-control" name="inputLab">
             <option disabled selected>-</option>
             <option th:each="lab : ${labs}" th:value="${lab}" th:text="${lab}"></option>
           </select>
@@ -37,7 +37,7 @@
 
         <div class="form-group">
           <label for="inputSubject">Subject</label>
-          <select id="inputSubject" class="form-control">
+          <select id="inputSubject" class="form-control" name="inputSubject">
             <option disabled selected>-</option>
             <option th:each="subject : ${subjects}" th:value="${subject}" th:text="${subject}"></option>
           </select>
@@ -50,17 +50,17 @@
             justify-content: space-between;
           ">
         <label for="datepicker">Date</label>
-        <input type="date" class="form-control" id="datepicker" oninput="getDate()" max="2024-01-01" />
+        <input type="date" class="form-control" id="datepicker" oninput="getDate()" max="2024-01-01" name="datepicker"/>
         <div class="form-time" style="display: flex">
           <div class="form-group"></div>
 
           <div class="time">
             <label for="initial-time">Initial time</label>
-            <input type="number" class="form-control flatpickr-time" id="initial-time" oninput="finalTime()"/>
+            <input type="number" class="form-control flatpickr-time" id="initial-time" oninput="finalTime()" name="initial-time"/>
           </div>
           <div class="time">
             <label for="final-time">Final time</label>
-            <input type="number" class="form-control flatpickr-time" id="final-time"/>
+            <input type="number" class="form-control flatpickr-time" id="final-time" name="final-time"/>
           </div>
         </div>
       </div>
