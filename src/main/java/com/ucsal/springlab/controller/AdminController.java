@@ -1,6 +1,7 @@
 package com.ucsal.springlab.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -38,7 +39,9 @@ public class AdminController {
 
     @GetMapping("save/{id}")
     public String save(@PathVariable("id") Long id) {
-        bookingService.saveToApprove(id);
+        Optional<Booking> booking = bookingService.findById(id);
+        bookingService.saveApproved(booking);
+        bookingService.delete(id);
         return "redirect:/admin";
     }
 }

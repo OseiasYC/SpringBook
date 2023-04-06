@@ -2,6 +2,7 @@ package com.ucsal.springlab.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class BookingService {
     private BookingRepository bookingRepository;
 
     @Autowired
-    private ApprovedBookingsRepository approvedBookingsRepository;
+    private ApprovedBookingsService approvedBookingsService;
 
     public void save(String professor, String subject, String lab, String date, LocalDateTime timeRequest, String timeInit, String timeFinal) {
     Booking booking = new Booking();
@@ -37,12 +38,17 @@ public class BookingService {
     public List<Booking> findAll(){
         return bookingRepository.findAll();
     }
+    
 
     public void delete(Long id) {
         bookingRepository.deleteById(id);
     }
 
-    public void saveToApprove(Long id) {
-        
+    public Optional<Booking> findById(Long id) {
+        return bookingRepository.findById(id);
+    }
+
+    public void saveApproved(Optional<Booking> booking) {
+        approvedBookingsService.save(booking);
     }
 }
