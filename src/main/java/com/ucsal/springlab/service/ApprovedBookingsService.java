@@ -15,10 +15,7 @@ public class ApprovedBookingsService {
     ApprovedBookingsRepository approvedBookingsRepository;
 
     public void save(Optional<Booking> booking) {
-        Booking approved = booking.get();
-
-        approvedBookingsRepository.save(approved.getId(), approved.getLab(), approved.getProfessor(), approved.getSubject(),
-        approved.getTimeFinal(), approved.getTimeInit(), approved.getTimeRequest());
+        approvedBookingsRepository.save(booking.get());
     }
     
 }
