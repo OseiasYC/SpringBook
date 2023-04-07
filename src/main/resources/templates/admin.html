@@ -8,19 +8,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../static/css/style.css">
-  <title>SpringLab ADMIN</title>
+  <title>SpringBook ADMIN</title>
 </head>
 
 <body>
   <header style="margin-bottom: 50px;">
-    <img src="../static/images/favicon.ico" alt="SpringLab icon" srcset="">
+    <img src="../static/images/favicon.ico" alt="SpringBook icon">
     <div>
       <h1 style="text-transform: capitalize; margin-bottom: -5px;"> Welcome, <span th:text="${user.username}"></span></h1>
       <p class="soft-messages">Admin Section</p>
+      <a href="/schedules" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house fa-lg" style="color: #86b0f0;"></i></a>
+      <a href="/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bookmark fa-lg" style="color: #86b0f0;"></i></a>
     </div>
   </header>
   <h2>Pending schedules</h2>
-  <a href="/" target="_blank" rel="noopener noreferrer">See approved schedules</a>
   <sub style="float: right">Sorted by the time of booking requests</sub>
   <table class="table">
     <thead class="thead-dark">

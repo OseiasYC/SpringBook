@@ -35,6 +35,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(
                         authorizeConfig -> {
                             authorizeConfig.requestMatchers("/public").permitAll();
+                            authorizeConfig.requestMatchers("/schedules").permitAll();
                             authorizeConfig.requestMatchers("/home").hasAuthority("USER");
                             authorizeConfig.requestMatchers("/admin").hasAuthority("ADMIN");
                             authorizeConfig.anyRequest().authenticated();

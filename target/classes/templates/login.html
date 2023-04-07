@@ -22,7 +22,7 @@
     <div class="wrapper" style="display: flex; justify-content: center">
       <form class="form-signin" th:action="@{login}" method="post" style="width: 400px;">
         <img class="form-signin-img" src="../static/images/favicon.ico">
-        <h2 class="form-signin-heading" style="margin: 5px;">SpringLab</h2>
+        <h2 class="form-signin-heading" style="margin: 5px;">SpringBook</h2>
         <sub style="margin-bottom: 15px; color: red" th:if="${param.error}">invalid user or password</sub>
         <input
           style="margin-top: 10px"
@@ -43,6 +43,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">
           Login
         </button>
+        <a href="/schedules" target="_blank" rel="noopener noreferrer">See approved books</a>
       </form>
     </div>
 
