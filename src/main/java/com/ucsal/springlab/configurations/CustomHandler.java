@@ -20,7 +20,7 @@ public class CustomHandler implements AuthenticationSuccessHandler {
             Authentication authentication) throws IOException, ServletException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         if (roles.contains("ADMIN")) {
-            response.sendRedirect("/admin");
+            response.sendRedirect("/pending");
         } else {
             response.sendRedirect("/");
         }

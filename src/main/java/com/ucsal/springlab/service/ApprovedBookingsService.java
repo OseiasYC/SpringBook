@@ -34,4 +34,8 @@ public class ApprovedBookingsService {
     void verify() {
             approvedBookingsRepository.deleteByTimeFinalBefore(LocalDateTime.now());
     }
+
+    public void delete(Long id) {
+        approvedBookingsRepository.deleteById(id);
+    }
 }

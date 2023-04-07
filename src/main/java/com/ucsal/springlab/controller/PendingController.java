@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,26 +17,30 @@ import com.ucsal.springlab.model.Booking;
 import com.ucsal.springlab.service.BookingService;
 
 @Controller
-public class AdminController {
+public class PendingController {
 
     @Autowired
     private BookingService bookingService;
 
-    @GetMapping("/admin")
-    public ModelAndView admin(@AuthenticationPrincipal UserDetails user) {
-        ModelAndView admin = new ModelAndView("admin");
+    @GetMapping("/pending")
+    public ModelAndView pending(@AuthenticationPrincipal UserDetails user) {
+        ModelAndView pending = new ModelAndView("pending");
         List<Booking> bookings = bookingService.findAll();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        admin.addObject("bookings", bookings);
-        admin.addObject("user", user);
+        boolean isAdmin = authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ADMIN"));
 
-        return admin;
+        pending.addObject("isAdmin", isAdmin);
+        pending.addObject("bookings", bookings);
+        pending.addObject("user", user);
+
+        return pending;
     }
 
     @GetMapping("delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         bookingService.delete(id);
-        return "redirect:/admin";
+        return "redirect:/pending";
     }
 
     @GetMapping("save/{id}")
@@ -42,6 +48,6 @@ public class AdminController {
         Optional<Booking> booking = bookingService.findById(id);
         bookingService.saveApproved(booking);
         bookingService.delete(id);
-        return "redirect:/admin";
+        return "redirect:/pending";
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ucsal.springlab.model.ApprovedBookings;
@@ -31,4 +32,11 @@ public class SchedulesController {
         
         return schedules;
     }
+
+    @GetMapping("deleteApproved/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        approvedBookingsService.delete(id);
+        return "redirect:/pending";
+    }
+
 }

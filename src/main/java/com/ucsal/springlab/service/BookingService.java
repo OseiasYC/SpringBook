@@ -5,12 +5,16 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.ucsal.springlab.model.Booking;
 import com.ucsal.springlab.repository.BookingRepository;
 
 @Service
+@EnableScheduling
 public class BookingService {
     
     @Autowired
@@ -49,5 +53,11 @@ public class BookingService {
 
     public void saveApproved(Optional<Booking> booking) {
         approvedBookingsService.save(booking);
+    }
+
+    @Async
+    @Scheduled(fixedDelay = 60000)
+    void verify() {
+        bookingRepository.deleteByTimeFinalBefore(LocalDateTime.now());
     }
 }

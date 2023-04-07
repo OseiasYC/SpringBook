@@ -31,4 +31,6 @@ public interface ApprovedBookingsRepository extends JpaRepository<ApprovedBookin
         @Modifying
         @Query(value = "DELETE FROM approved_books ab WHERE ab.time_final < ?1", nativeQuery = true)
         void deleteByTimeFinalBefore(LocalDateTime now);
+
+        void deleteById(Long id);
 }

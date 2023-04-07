@@ -8,15 +8,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../static/css/style.css">
-  <title>SpringBook ADMIN</title>
+  <title>SpringBook</title>
 </head>
 
 <body>
   <header style="margin-bottom: 50px;">
     <img src="../static/images/favicon.ico" alt="SpringBook icon">
     <div>
-      <h1 style="text-transform: capitalize; margin-bottom: -5px;"> Welcome, <span th:text="${user.username}"></span></h1>
-      <p class="soft-messages">Admin Section</p>
+      <h1 style="text-transform: capitalize; margin-bottom: -5px;"> SpringBook</span></h1>
+      <p class="soft-messages">Books about to approve</p>
       <a href="/schedules" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house fa-lg" style="color: #86b0f0;"></i></a>
       <a href="/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bookmark fa-lg" style="color: #86b0f0;"></i></a>
     </div>
@@ -31,7 +31,7 @@
         <th scope="col">Hour</th>
         <th scope="col">Professor</th>
         <th scope="col">Subject</th>
-        <th scope="col" style="text-align: center;">Approve?</th>
+        <th scope="col" style="text-align: center;" th:if="${isAdmin}">Approve?</th>
       </tr>
     </thead>
     <tbody>
@@ -41,7 +41,7 @@
         <td th:text="${#temporals.format(booking.timeInit, 'HH:mm')} + ' - ' + ${#temporals.format(booking.timeFinal, 'HH:mm')}"></td>
         <td th:text="${booking.professor}"></td>
         <td th:text="${booking.subject}"></td>
-        <td style="display: flex; justify-content: space-evenly">
+        <td style="display: flex; justify-content: space-evenly" th:if="${isAdmin}">
           <form th:action="@{/save/{id}(id=${booking.id})}" method="get" onsubmit="return confirm('Have you sure to approve?');"><button type="submit" class="btn btn-primary"><i class="fa-solid fa-check fa-xs"></i></button></form>
           <form th:action="@{/delete/{id}(id=${booking.id})}" method="get" onsubmit="return confirm('Have you sure to delete?');"><button class="btn btn-primary"><i class="fa-solid fa-xmark fa-xs" style="color: #ffffff;"></i></button></form>
         </td>
