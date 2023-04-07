@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ucsal.springlab.model.ApprovedBookings;
 import com.ucsal.springlab.model.Booking;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,4 +26,9 @@ public interface ApprovedBookingsRepository extends JpaRepository<ApprovedBookin
 
         @Query(value = "SELECT * FROM approved_books ORDER BY time_init", nativeQuery = true)
         List<ApprovedBookings> findAll();
+
+        @Transactional
+        @Modifying
+        @Query(value = "DELETE FROM approved_books ab WHERE ab.time_final < ?1", nativeQuery = true)
+        void deleteByTimeFinalBefore(LocalDateTime now);
 }

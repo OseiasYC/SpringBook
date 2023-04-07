@@ -1,6 +1,5 @@
 package com.ucsal.springlab.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,11 +47,10 @@ public class HomeController {
         String lab = request.getParameter("inputLab");
         String subject = request.getParameter("inputSubject");
         String date = request.getParameter("datepicker");
-        LocalDateTime timeRequest = LocalDateTime.now();
         String timeInit = request.getParameter("initial-time");
         String timeFinal = request.getParameter("final-time");
 
-        bookingService.save(professor, subject, lab, date, timeRequest, timeInit, timeFinal);
+        bookingService.save(professor, subject, lab, date, timeInit, timeFinal);
         
         attributes.addFlashAttribute("message", "Submitted for verification");
 

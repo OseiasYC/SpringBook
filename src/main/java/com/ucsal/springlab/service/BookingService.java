@@ -19,7 +19,7 @@ public class BookingService {
     @Autowired
     private ApprovedBookingsService approvedBookingsService;
 
-    public void save(String professor, String subject, String lab, String date, LocalDateTime timeRequest, String timeInit, String timeFinal) {
+    public void save(String professor, String subject, String lab, String date, String timeInit, String timeFinal) {
     Booking booking = new Booking();
     LocalDateTime initialTime = LocalDateTime.parse(date + "T" + timeInit + ":00");
     LocalDateTime finalTime = LocalDateTime.parse(date + "T" + timeFinal + ":00");
@@ -27,7 +27,7 @@ public class BookingService {
     booking.setProfessor(professor);
     booking.setSubject(subject);
     booking.setLab(lab);
-    booking.setTimeRequest(timeRequest);
+    booking.setTimeRequest(LocalDateTime.now());
     booking.setTimeInit(initialTime);
     booking.setTimeFinal(finalTime);
 
