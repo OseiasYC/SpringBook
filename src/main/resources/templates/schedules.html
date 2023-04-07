@@ -31,7 +31,7 @@
                     <th scope="col">Hour</th>
                     <th scope="col">Professor</th>
                     <th scope="col">Subject</th>
-                    <th scope="col">Delete?</th>
+                    <th scope="col" th:if="${isAdmin}">Delete?</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +41,8 @@
                     <td th:text="${#temporals.format(booking.timeInit, 'HH:mm')} + ' - ' + ${#temporals.format(booking.timeFinal, 'HH:mm')}"></td>
                     <td th:text="${booking.professor}"></td>
                     <td th:text="${booking.subject}"></td>
+                    <td><form th:action="@{/delete/{id}(id=${booking.id})}" method="get" onsubmit="return confirm('Have you sure to delete?');">
+                        <button class="btn btn-primary"><i class="fa-solid fa-xmark fa-xs" style="color: #ffffff;"></i></button></form></td>
                 </tr>
             </tbody>
         </table>

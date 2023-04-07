@@ -23,6 +23,6 @@ public interface ApprovedBookingsRepository extends JpaRepository<ApprovedBookin
         void save(@Param("book") Booking book);
 
 
-        // @Query(value = "SELECT ab FROM approved_books ab ORDER BY ab.time_init", nativeQuery = true) FIXME
+        @Query(value = "SELECT * FROM approved_books ORDER BY time_init", nativeQuery = true)
         List<ApprovedBookings> findAll();
 }

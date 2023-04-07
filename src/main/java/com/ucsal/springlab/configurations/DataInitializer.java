@@ -162,17 +162,17 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     private void saveBooking(){
-        Booking booking = new Booking();
+        Booking booking1 = new Booking();
         LocalDateTime initialTime = LocalDateTime.parse("2023-10-20T09:00:00");
         LocalDateTime finalTime = LocalDateTime.parse("2023-10-20T09:30:00");
 
-        booking.setProfessor("Fernando Cézar Reis Borges");
-        booking.setSubject("Lógica de Prog. e Algoritmos");
-        booking.setLab("LAMI 2 (B414)");
-        booking.setTimeRequest(LocalDateTime.now());
-        booking.setTimeInit(initialTime);
-        booking.setTimeFinal(finalTime);
+        booking1.setProfessor("Fernando Cézar Reis Borges");
+        booking1.setSubject("Lógica de Prog. e Algoritmos");
+        booking1.setLab("LAMI 2 (B414)");
+        booking1.setTimeRequest(LocalDateTime.now());
+        booking1.setTimeInit(initialTime);
+        booking1.setTimeFinal(finalTime);
 
-        bookingRepository.save(booking);
+        bookingRepository.save(booking1);
     }
 }
