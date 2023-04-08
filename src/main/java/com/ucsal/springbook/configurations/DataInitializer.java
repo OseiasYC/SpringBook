@@ -140,27 +140,47 @@ public class DataInitializer implements CommandLineRunner {
 
     private void saveProfessor() {
         Professor fernando = new Professor();
+        Professor osvaldo = new Professor();
 
         List<Subject> fernandoSubjects = new ArrayList<>();
+        List<Subject> osvaldoSubjects = new ArrayList<>();
 
-        Subject subject1 = new Subject();
-        Subject subject2 = new Subject();
-        Subject subject3 = new Subject();
+        Subject fernandoSubject1 = new Subject();
+        Subject fernandoSubject2 = new Subject();
+        Subject fernandoSubject3 = new Subject();
 
-        subject1.setName("Governança de TI");
-        subject2.setName("Lógica de Prog. e Algoritmos");
-        subject3.setName("Arquitetura de Software");
+        Subject osvaldoSubject1 = new Subject();
+        Subject osvaldoSubject2 = new Subject();
+        Subject osvaldoSubject3 = new Subject();
 
-        fernandoSubjects.add(subject1);
-        fernandoSubjects.add(subject2);
-        fernandoSubjects.add(subject3);
+        fernandoSubject1.setName("Governança de TI");
+        fernandoSubject2.setName("Lógica de Prog. e Algoritmos");
+        fernandoSubject3.setName("Arquitetura de Software");
 
-        fernando.setId(01);
+        fernandoSubjects.add(fernandoSubject1);
+        fernandoSubjects.add(fernandoSubject2);
+        fernandoSubjects.add(fernandoSubject3);
+
+        fernando.setId(1);
         fernando.setName("Fernando Cézar Reis Borges");
         fernando.setLogin("fernando");
         fernando.setSubjects(fernandoSubjects);
 
+        osvaldoSubject1.setName("Raciocínio Lógico");
+        osvaldoSubject2.setName("Compiladores");
+        osvaldoSubject3.setName("Projeto Final");
+
+        osvaldoSubjects.add(osvaldoSubject1);
+        osvaldoSubjects.add(osvaldoSubject2);
+        osvaldoSubjects.add(osvaldoSubject3);
+
+        osvaldo.setId(2);
+        osvaldo.setName("Osvaldo Requião Mello");
+        osvaldo.setLogin("osvaldo");
+        osvaldo.setSubjects(osvaldoSubjects);
+        
         professorService.save(fernando);
+        professorService.save(osvaldo);
     }
 
     private void saveBooking() {

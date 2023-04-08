@@ -14,6 +14,8 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
+    @Transactional
+    @Modifying
     void deleteById(Long id);
 
     @Transactional
