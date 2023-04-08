@@ -12,7 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "APPROVED_BOOKS")
+@Table(name = "approved_books")
 public class ApprovedBookings implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -12,7 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "BOOKS")
+@Table(name = "books")
 public class Booking implements Serializable {
 
     private static final long serialVersionUID = 1L;
