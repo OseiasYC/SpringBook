@@ -1,4 +1,4 @@
-package com.ucsal.springlab.repository;
+package com.ucsal.springbook.repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.ucsal.springlab.model.Professor;
+import com.ucsal.springbook.model.Professor;
 
 @Repository
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {

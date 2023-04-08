@@ -1,4 +1,4 @@
-package com.ucsal.springlab.controller;
+package com.ucsal.springbook.controller;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ucsal.springlab.service.BookingService;
-import com.ucsal.springlab.service.LabService;
-import com.ucsal.springlab.service.ProfessorService;
+import com.ucsal.springbook.service.BookingService;
+import com.ucsal.springbook.service.LabService;
+import com.ucsal.springbook.service.ProfessorService;
 
 import jakarta.servlet.http.HttpServletRequest;
 

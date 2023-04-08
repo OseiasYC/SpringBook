@@ -1,4 +1,4 @@
-package com.ucsal.springlab.service;
+package com.ucsal.springbook.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import com.ucsal.springlab.model.ApprovedBookings;
-import com.ucsal.springlab.model.Booking;
-import com.ucsal.springlab.repository.ApprovedBookingsRepository;
+import com.ucsal.springbook.model.ApprovedBookings;
+import com.ucsal.springbook.model.Booking;
+import com.ucsal.springbook.repository.ApprovedBookingsRepository;
 
 @Service
 @EnableScheduling

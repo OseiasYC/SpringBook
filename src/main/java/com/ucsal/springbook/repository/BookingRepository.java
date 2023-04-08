@@ -1,4 +1,4 @@
-package com.ucsal.springlab.repository;
+package com.ucsal.springbook.repository;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.ucsal.springlab.model.Booking;
+import com.ucsal.springbook.model.Booking;
 
 import jakarta.transaction.Transactional;
 

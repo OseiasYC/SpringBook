@@ -1,12 +1,12 @@
-package com.ucsal.springlab.service;
+package com.ucsal.springbook.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ucsal.springlab.model.Professor;
-import com.ucsal.springlab.repository.ProfessorRepository;
+import com.ucsal.springbook.model.Professor;
+import com.ucsal.springbook.repository.ProfessorRepository;
 
 @Service
 public class ProfessorService {

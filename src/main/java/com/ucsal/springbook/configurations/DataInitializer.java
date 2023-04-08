@@ -1,4 +1,4 @@
-package com.ucsal.springlab.configurations;
+package com.ucsal.springbook.configurations;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.ucsal.springlab.model.Booking;
-import com.ucsal.springlab.model.Lab;
-import com.ucsal.springlab.model.Professor;
-import com.ucsal.springlab.model.Subject;
-import com.ucsal.springlab.repository.BookingRepository;
-import com.ucsal.springlab.service.LabService;
-import com.ucsal.springlab.service.ProfessorService;
+import com.ucsal.springbook.model.Booking;
+import com.ucsal.springbook.model.Lab;
+import com.ucsal.springbook.model.Professor;
+import com.ucsal.springbook.model.Subject;
+import com.ucsal.springbook.repository.BookingRepository;
+import com.ucsal.springbook.service.LabService;
+import com.ucsal.springbook.service.ProfessorService;
 
 @Component
 public class DataInitializer implements CommandLineRunner {

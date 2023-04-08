@@ -1,4 +1,4 @@
-package com.ucsal.springlab.model;
+package com.ucsal.springbook.model;
 
 import java.util.List;
 

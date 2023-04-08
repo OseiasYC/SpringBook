@@ -1,4 +1,4 @@
-package com.ucsal.springlab.controller;
+package com.ucsal.springbook.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

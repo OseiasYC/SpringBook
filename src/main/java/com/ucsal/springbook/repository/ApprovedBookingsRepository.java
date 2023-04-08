@@ -1,10 +1,10 @@
-package com.ucsal.springlab.repository;
+package com.ucsal.springbook.repository;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ucsal.springlab.model.ApprovedBookings;
-import com.ucsal.springlab.model.Booking;
+import com.ucsal.springbook.model.ApprovedBookings;
+import com.ucsal.springbook.model.Booking;
 
 import java.time.LocalDateTime;
 import java.util.List;

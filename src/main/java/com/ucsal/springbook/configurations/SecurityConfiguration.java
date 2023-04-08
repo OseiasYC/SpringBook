@@ -1,4 +1,4 @@
-package com.ucsal.springlab.configurations;
+package com.ucsal.springbook.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

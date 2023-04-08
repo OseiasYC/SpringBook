@@ -1,4 +1,4 @@
-package com.ucsal.springlab.configurations;
+package com.ucsal.springbook.configurations;
 
 import java.io.IOException;
 import java.util.Set;

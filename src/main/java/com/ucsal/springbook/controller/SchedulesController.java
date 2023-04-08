@@ -1,4 +1,4 @@
-package com.ucsal.springlab.controller;
+package com.ucsal.springbook.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ucsal.springlab.model.ApprovedBookings;
-import com.ucsal.springlab.service.ApprovedBookingsService;
+import com.ucsal.springbook.model.ApprovedBookings;
+import com.ucsal.springbook.service.ApprovedBookingsService;
 
 @Controller
 public class SchedulesController {
@@ -37,7 +37,7 @@ public class SchedulesController {
     @GetMapping("deleteApproved/{id}")
     public String delete(@PathVariable("id") Long id) {
         approvedBookingsService.delete(id);
-        return "redirect:/pending";
+        return "redirect:/schedules";
     }
 
 }

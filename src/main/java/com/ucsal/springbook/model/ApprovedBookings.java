@@ -1,4 +1,4 @@
-package com.ucsal.springlab.model;
+package com.ucsal.springbook.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -12,8 +12,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "BOOKS")
-public class Booking implements Serializable {
+@Table(name = "APPROVED_BOOKS")
+public class ApprovedBookings implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
