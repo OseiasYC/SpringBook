@@ -34,7 +34,7 @@ public class Professor {
 
     public static long getSerialversionuid() {
         return serialVersionUID;
-    } 
+    }
 
     public long getId() {
         return id;

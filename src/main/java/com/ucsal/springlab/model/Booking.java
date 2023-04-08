@@ -16,29 +16,29 @@ import jakarta.persistence.Table;
 public class Booking implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @JoinColumn(nullable = false)
     private String professor;
-    
+
     @Column(nullable = false)
     private String subject;
-    
+
     @JoinColumn(nullable = false)
     private String lab;
-    
+
     @Column(nullable = false)
     private LocalDateTime timeRequest;
 
     @Column(nullable = false)
     private LocalDateTime timeInit;
-    
+
     @Column(nullable = false)
     private LocalDateTime timeFinal;
-    
+
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
@@ -54,7 +54,7 @@ public class Booking implements Serializable {
     public String getProfessor() {
         return professor;
     }
-    
+
     public void setProfessor(String professor) {
         this.professor = professor;
     }
@@ -74,11 +74,11 @@ public class Booking implements Serializable {
     public void setSubject(String subject) {
         this.subject = subject;
     }
-    
+
     public String getLab() {
         return lab;
     }
-    
+
     public void setLab(String lab) {
         this.lab = lab;
     }

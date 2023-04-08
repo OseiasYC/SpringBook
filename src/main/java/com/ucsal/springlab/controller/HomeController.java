@@ -51,7 +51,7 @@ public class HomeController {
         String timeFinal = request.getParameter("final-time");
 
         bookingService.save(professor, subject, lab, date, timeInit, timeFinal);
-        
+
         attributes.addFlashAttribute("message", "Submitted for verification");
 
         return "redirect:/";

@@ -10,7 +10,7 @@ import com.ucsal.springlab.repository.LabRepository;
 
 @Service
 public class LabService {
-    
+
     @Autowired
     private LabRepository labRepository;
 

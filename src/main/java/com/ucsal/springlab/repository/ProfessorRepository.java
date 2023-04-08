@@ -10,7 +10,7 @@ import com.ucsal.springlab.model.Professor;
 
 @Repository
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {
-    
+
     @Query(value = "SELECT name FROM subject s WHERE s.professor_login = ?1", nativeQuery = true)
     List<String> getSubjects(String login);
 

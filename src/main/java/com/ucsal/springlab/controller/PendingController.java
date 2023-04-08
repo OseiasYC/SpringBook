@@ -28,7 +28,8 @@ public class PendingController {
         List<Booking> bookings = bookingService.findAll();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        boolean isAdmin = authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ADMIN"));
+        boolean isAdmin = authentication.getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals("ADMIN"));
 
         pending.addObject("isAdmin", isAdmin);
         pending.addObject("bookings", bookings);

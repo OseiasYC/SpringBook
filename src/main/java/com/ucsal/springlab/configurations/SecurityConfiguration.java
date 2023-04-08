@@ -34,7 +34,7 @@ public class SecurityConfiguration {
         return http
                 .authorizeHttpRequests(
                         authorizeConfig -> {
-                            authorizeConfig.requestMatchers("/public","/schedules", "/pending").permitAll();
+                            authorizeConfig.requestMatchers("/public", "/schedules", "/pending").permitAll();
                             authorizeConfig.requestMatchers("/home").hasAuthority("USER");
                             authorizeConfig.anyRequest().authenticated();
                         })

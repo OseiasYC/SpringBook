@@ -12,8 +12,8 @@ import com.ucsal.springlab.model.Booking;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface BookingRepository extends JpaRepository<Booking, Long>{
-    
+public interface BookingRepository extends JpaRepository<Booking, Long> {
+
     void deleteById(Long id);
 
     @Transactional

@@ -9,6 +9,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "subject")
 public class Subject {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,5 +32,4 @@ public class Subject {
         this.name = name;
     }
 
-    
 }

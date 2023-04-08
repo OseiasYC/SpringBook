@@ -46,8 +46,12 @@ function finalTime() {
 //Checker
 $("#button").click(function (event) {
   event.preventDefault();
-  const selectedInitialTime = new Date(datepicker.value + "T" + initial.value + ":00");
-  const selectedFinalTime = new Date(datepicker.value + "T" + initial.value + ":00");
+  const selectedInitialTime = new Date(
+    datepicker.value + "T" + initial.value + ":00"
+  );
+  const selectedFinalTime = new Date(
+    datepicker.value + "T" + initial.value + ":00"
+  );
   var now = new Date();
 
   if (
@@ -60,16 +64,18 @@ $("#button").click(function (event) {
     $("#message").text("Please, check all the inputs");
   } else {
     if (initial.value || final.value) {
-      if (selectedInitialTime < now.getTime() || selectedFinalTime < now.getTime()) {
+      if (
+        selectedInitialTime < now.getTime() ||
+        selectedFinalTime < now.getTime()
+      ) {
         $("#message").text("You can't select past time");
       } else {
         $("form").submit();
       }
     }
-
   }
 });
 
-$('#form-home').removeClass("hidden");
+$("#form-home").removeClass("hidden");
 
 getDate();
