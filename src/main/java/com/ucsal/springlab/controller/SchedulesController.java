@@ -25,11 +25,12 @@ public class SchedulesController {
         List<ApprovedBookings> bookings = approvedBookingsService.findAll();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        boolean isAdmin = authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ADMIN"));
-        
+        boolean isAdmin = authentication.getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals("ADMIN"));
+
         schedules.addObject("isAdmin", isAdmin);
         schedules.addObject("bookings", bookings);
-        
+
         return schedules;
     }
 

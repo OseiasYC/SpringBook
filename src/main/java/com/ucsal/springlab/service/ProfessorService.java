@@ -10,7 +10,7 @@ import com.ucsal.springlab.repository.ProfessorRepository;
 
 @Service
 public class ProfessorService {
-    
+
     @Autowired
     private ProfessorRepository professorRepository;
 
@@ -22,7 +22,7 @@ public class ProfessorService {
         return professorRepository.getSubjects(login);
     }
 
-    public String getName(String login){
-    return professorRepository.getName(login);
+    public String getName(String login) {
+        return professorRepository.getName(login);
     }
 }

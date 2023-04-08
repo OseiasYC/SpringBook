@@ -59,70 +59,70 @@ public class DataInitializer implements CommandLineRunner {
         lab2.setLami("LAMI 2");
         lab2.setDescription("Laboratório de Micro Informática 2");
         lab2.setStatus(true);
-        lab2.setDesktops(30);
+        lab2.setDesktops(20);
         lab2.setLocation("B414");
 
         lab3.setId(3);
         lab3.setLami("LAMI 3");
         lab3.setDescription("Laboratório de Micro Informática 3");
         lab3.setStatus(true);
-        lab3.setDesktops(30);
+        lab3.setDesktops(20);
         lab3.setLocation("B415");
 
         lab4.setId(4);
         lab4.setLami("LAMI 4");
         lab4.setDescription("Laboratório de Micro Informática 4");
         lab4.setStatus(true);
-        lab4.setDesktops(30);
+        lab4.setDesktops(20);
         lab4.setLocation("B416");
 
         lab5.setId(5);
         lab5.setLami("LAMI 5");
         lab5.setDescription("Laboratório de Micro Informática 5");
         lab5.setStatus(true);
-        lab5.setDesktops(30);
+        lab5.setDesktops(20);
         lab5.setLocation("B417");
 
         lab6.setId(6);
         lab6.setLami("LAMI 6");
         lab6.setDescription("Laboratório de Micro Informática 6");
         lab6.setStatus(true);
-        lab6.setDesktops(30);
+        lab6.setDesktops(20);
         lab6.setLocation("B418");
 
         lab7.setId(7);
         lab7.setLami("LAMI 7");
         lab7.setDescription("Laboratório de Micro Informática 7");
         lab7.setStatus(true);
-        lab7.setDesktops(30);
+        lab7.setDesktops(20);
         lab7.setLocation("B419");
 
         lab8.setId(8);
         lab8.setLami("LAMI 8");
         lab8.setDescription("Laboratório de Micro Informática 8");
         lab8.setStatus(true);
-        lab8.setDesktops(30);
+        lab8.setDesktops(20);
         lab8.setLocation("B420");
 
         lab9.setId(9);
         lab9.setLami("LAMI 9");
         lab9.setDescription("Laboratório de Micro Informática 9");
         lab9.setStatus(true);
-        lab9.setDesktops(30);
+        lab9.setDesktops(20);
         lab9.setLocation("B421");
 
         lab10.setId(10);
         lab10.setLami("LAMI 10");
         lab10.setDescription("Laboratório de Micro Informática 10");
         lab10.setStatus(true);
-        lab10.setDesktops(30);
+        lab10.setDesktops(20);
         lab10.setLocation("B422");
 
         lab11.setId(11);
         lab11.setLami("LAMI WEX");
         lab11.setDescription("Laboratório de Micro Informática 11");
         lab11.setStatus(true);
-        lab11.setDesktops(30);
+        lab11.setDesktops(20);
         lab11.setLocation("B423");
 
         labService.save(lab1);
@@ -140,7 +140,9 @@ public class DataInitializer implements CommandLineRunner {
 
     private void saveProfessor() {
         Professor fernando = new Professor();
+
         List<Subject> fernandoSubjects = new ArrayList<>();
+
         Subject subject1 = new Subject();
         Subject subject2 = new Subject();
         Subject subject3 = new Subject();
@@ -161,8 +163,9 @@ public class DataInitializer implements CommandLineRunner {
         professorService.save(fernando);
     }
 
-    private void saveBooking(){
+    private void saveBooking() {
         Booking booking1 = new Booking();
+
         LocalDateTime initialTime = LocalDateTime.parse("2023-10-20T09:00:00");
         LocalDateTime finalTime = LocalDateTime.parse("2023-10-20T09:30:00");
 

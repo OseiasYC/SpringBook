@@ -32,7 +32,7 @@ public class ApprovedBookingsService {
     @Async
     @Scheduled(fixedDelay = 60000)
     void verify() {
-            approvedBookingsRepository.deleteByTimeFinalBefore(LocalDateTime.now());
+        approvedBookingsRepository.deleteByTimeFinalBefore(LocalDateTime.now());
     }
 
     public void delete(Long id) {
