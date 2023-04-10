@@ -31,6 +31,9 @@ public interface ApprovedBookingsRepository extends JpaRepository<ApprovedBookin
         @Query(value = "DELETE FROM approved_books ab WHERE ab.time_final < ?1", nativeQuery = true)
         void deleteByTimeFinalBefore(LocalDateTime now);
 
+        @Query(value = "SELECT COUNT(*) FROM approved_books ab WHERE ab.lab = ?1 AND ((ab.time_init <= ?2 AND ab.time_final >= ?2) OR (ab.time_init <= ?3 AND ab.time_final >= ?3))", nativeQuery = true)
+        int isBusy(String lab, LocalDateTime timeInit, LocalDateTime timeFinal);
+
         @Transactional
         @Modifying
         void deleteById(Long id);

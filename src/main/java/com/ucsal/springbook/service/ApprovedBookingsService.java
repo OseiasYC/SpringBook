@@ -38,4 +38,9 @@ public class ApprovedBookingsService {
     public void delete(Long id) {
         approvedBookingsRepository.deleteById(id);
     }
+
+    public int isBusy(String lab, LocalDateTime timeInit, LocalDateTime timeFinal) {
+        int count = approvedBookingsRepository.isBusy(lab, timeInit, timeFinal);
+        return count;
+    }
 }

@@ -29,7 +29,7 @@ public class DataInitializer implements CommandLineRunner {
     private BookingRepository bookingRepository;
 
     @Override
-    public void run(String[] args) throws Exception {
+    public void run(String... args) throws Exception {
         saveProfessor();
         saveLab();
         saveBooking();

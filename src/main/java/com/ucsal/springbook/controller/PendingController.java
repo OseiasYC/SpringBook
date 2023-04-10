@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ucsal.springbook.model.Booking;
 import com.ucsal.springbook.service.BookingService;
@@ -45,10 +46,16 @@ public class PendingController {
     }
 
     @GetMapping("save/{id}")
-    public String save(@PathVariable("id") Long id) {
+    public String save(@PathVariable("id") Long id, RedirectAttributes attributes) {
         Optional<Booking> booking = bookingService.findById(id);
-        bookingService.saveApproved(booking);
-        bookingService.delete(id);
+        
+        if (bookingService.isBusy(booking)) {
+            attributes.addFlashAttribute("message", "This lab is already busy, please, verify");
+        } else {
+            bookingService.saveApproved(booking);
+            bookingService.delete(id);
+        }
+
         return "redirect:/pending";
     }
 }

@@ -54,6 +54,17 @@ public class BookingService {
         approvedBookingsService.save(booking);
     }
 
+    public boolean isBusy(Optional<Booking> booking){
+        int count = approvedBookingsService.isBusy(booking.get().getLab(), booking.get().getTimeInit(),
+                booking.get().getTimeFinal());
+                
+        if (count > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Async
     @Scheduled(fixedDelay = 60000)
     void verify() {
