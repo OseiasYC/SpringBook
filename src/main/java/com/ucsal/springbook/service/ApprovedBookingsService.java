@@ -21,6 +21,9 @@ public class ApprovedBookingsService {
     @Autowired
     ApprovedBookingsRepository approvedBookingsRepository;
 
+    @Autowired
+    private LogService logService;
+
     public void save(Optional<Booking> booking) {
         approvedBookingsRepository.save(booking.get());
     }
@@ -36,6 +39,7 @@ public class ApprovedBookingsService {
     }
 
     public void delete(Long id) {
+        logService.deletedApproved(approvedBookingsRepository.findById(id).get());
         approvedBookingsRepository.deleteById(id);
     }
 

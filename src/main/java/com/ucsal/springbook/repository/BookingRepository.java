@@ -1,6 +1,7 @@
 package com.ucsal.springbook.repository;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -17,6 +18,11 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     @Transactional
     @Modifying
     void deleteById(Long id);
+
+    @Transactional
+    @Modifying
+    @Override
+    Optional<Booking> findById(Long id);
 
     @Transactional
     @Modifying

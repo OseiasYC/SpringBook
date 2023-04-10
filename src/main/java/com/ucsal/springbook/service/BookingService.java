@@ -23,6 +23,9 @@ public class BookingService {
     @Autowired
     private ApprovedBookingsService approvedBookingsService;
 
+    @Autowired 
+    private LogService logService;
+
     public void save(String professor, String subject, String lab, String date, String timeInit, String timeFinal) {
         Booking booking = new Booking();
         LocalDateTime initialTime = LocalDateTime.parse(date + "T" + timeInit + ":00");
@@ -35,6 +38,7 @@ public class BookingService {
         booking.setTimeInit(initialTime);
         booking.setTimeFinal(finalTime);
 
+        logService.insertedPending(booking);
         bookingRepository.save(booking);
     }
 
@@ -43,6 +47,7 @@ public class BookingService {
     }
 
     public void delete(Long id) {
+        logService.deletedPending(findById(id).get());
         bookingRepository.deleteById(id);
     }
 
@@ -51,6 +56,7 @@ public class BookingService {
     }
 
     public void saveApproved(Optional<Booking> booking) {
+        logService.insertedApproved(booking.get());
         approvedBookingsService.save(booking);
     }
 

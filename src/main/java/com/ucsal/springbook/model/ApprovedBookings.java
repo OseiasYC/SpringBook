@@ -99,4 +99,9 @@ public class ApprovedBookings implements Serializable {
         this.timeFinal = timeFinal;
     }
 
+    @Override
+    public String toString() {
+        return timeRequest + " | " + lab + " | " + timeInit + " - " + timeFinal + " | " + professor + " | " + subject;
+    }
+
 }
