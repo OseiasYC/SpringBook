@@ -32,6 +32,7 @@ public class HomeController {
     @GetMapping("/")
     public ModelAndView home(@AuthenticationPrincipal UserDetails user) {
         ModelAndView home = new ModelAndView("home");
+        
         List<String> labs = labService.getLabs();
         List<String> subjects = professorService.getSubjects(user.getUsername());
 

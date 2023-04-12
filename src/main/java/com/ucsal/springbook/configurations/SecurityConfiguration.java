@@ -40,7 +40,6 @@ public class SecurityConfiguration {
                         })
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/home")
                         .successHandler(customHandler)
                         .permitAll())
                 .build();
