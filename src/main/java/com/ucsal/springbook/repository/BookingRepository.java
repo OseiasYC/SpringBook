@@ -16,21 +16,15 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long>{
     
-    @Transactional
-    @Modifying
     @Query(value = "SELECT * FROM booking WHERE approved = false", nativeQuery = true)
     List<Booking> findPending();
 
-    @Transactional
-    @Modifying
     @Query(value = "SELECT * FROM booking WHERE approved = true", nativeQuery = true)
     List<Booking> findApproved();
 
     @Query(value = "SELECT COUNT(*) FROM booking b WHERE b.lab_id = ?1 AND ((b.time_init <= ?2 AND b.time_final >= ?2) OR (b.time_init <= ?3 AND b.time_final >= ?3)) AND b.approved = true", nativeQuery = true)
     int isBusy(long lab, LocalDateTime timeInit, LocalDateTime timeFinal);
 
-    @Transactional
-    @Modifying
     @Override
     Optional<Booking> findById(Long id);
 

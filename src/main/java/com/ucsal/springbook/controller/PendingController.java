@@ -48,13 +48,11 @@ public class PendingController {
     @GetMapping("approve/{id}")
     public String approve(@PathVariable("id") Long id, RedirectAttributes attributes) {
         Optional<Booking> booking = bookingService.findById(id);
-        
-        System.out.println(booking.get().isApproved());
 
         if (bookingService.isBusy(booking)) {
             attributes.addFlashAttribute("message", "This lab is already busy, please, verify");
         } else {
-            bookingService.approveBooking(booking.get());
+            bookingService.approveBooking(booking);
         }
 
         return "redirect:/pending";

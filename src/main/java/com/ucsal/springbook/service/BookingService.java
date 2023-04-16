@@ -43,22 +43,18 @@ public class BookingService {
     }
 
     public boolean isBusy(Optional<Booking> booking) {
-        int count = bookingRepository.isBusy(booking.get().getLab().getId(), booking.get().getTimeInit(),
-                booking.get().getTimeFinal());
-
-        if (count > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return booking.map(b -> {
+            int count = bookingRepository.isBusy(b.getLab().getId(), b.getTimeInit(), b.getTimeFinal());
+            return count > 0;
+        }).orElse(false);
     }
 
     public Optional<Booking> findById(Long id) {
         return bookingRepository.findById(id);
     }
 
-    public void approveBooking(Booking booking) {
-        bookingRepository.approveBooking(booking.getId());
+    public void approveBooking(Optional<Booking> booking) {
+        booking.ifPresent(b -> bookingRepository.approveBooking(b.getId()));
     }
 
     @Async
