@@ -30,6 +30,9 @@ public class BookingService {
     @Autowired
     private LabService labService;
 
+    @Autowired
+    private LogService logService;
+
     public List<Booking> findPending() {
         return bookingRepository.findPending();
     }
@@ -39,6 +42,12 @@ public class BookingService {
     }
 
     public void delete(Long id) {
+        Booking booking = bookingRepository.findById(id).get();
+        if (booking.isApproved()) {
+            logService.deletedApproved(booking);
+        } else {
+            logService.deletedPending(booking);
+        }
         bookingRepository.deleteById(id);
     }
 
@@ -54,7 +63,10 @@ public class BookingService {
     }
 
     public void approveBooking(Optional<Booking> booking) {
-        booking.ifPresent(b -> bookingRepository.approveBooking(b.getId()));
+        booking.ifPresent(b -> {          
+            logService.insertedApproved(booking.get());
+            bookingRepository.approveBooking(b.getId());
+        });
     }
 
     @Async
@@ -75,6 +87,7 @@ public class BookingService {
         booking.setTimeInit(initialTime);
         booking.setTimeFinal(finalTime);
 
+        logService.insertedPending(booking);
         bookingRepository.save(booking);
     }
 }
