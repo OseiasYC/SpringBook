@@ -1,6 +1,7 @@
 package com.ucsal.springbook.repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,11 +14,20 @@ import com.ucsal.springbook.model.Booking;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface BookingRepository extends JpaRepository<Booking, Long> {
+public interface BookingRepository extends JpaRepository<Booking, Long>{
+    
+    @Transactional
+    @Modifying
+    @Query(value = "SELECT * FROM booking WHERE approved = false", nativeQuery = true)
+    List<Booking> findPending();
 
     @Transactional
     @Modifying
-    void deleteById(Long id);
+    @Query(value = "SELECT * FROM booking WHERE approved = true", nativeQuery = true)
+    List<Booking> findApproved();
+
+    @Query(value = "SELECT COUNT(*) FROM booking b WHERE b.lab_id = ?1 AND ((b.time_init <= ?2 AND b.time_final >= ?2) OR (b.time_init <= ?3 AND b.time_final >= ?3)) AND b.approved = true", nativeQuery = true)
+    int isBusy(long lab, LocalDateTime timeInit, LocalDateTime timeFinal);
 
     @Transactional
     @Modifying
@@ -26,6 +36,12 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "DELETE FROM books ab WHERE ab.time_final < ?1", nativeQuery = true)
+    @Query(value = "UPDATE booking SET approved = true WHERE id = ?1", nativeQuery = true)
+    void approveBooking(long id);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM booking WHERE time_final < ?1", nativeQuery = true)
     void deleteByTimeFinalBefore(LocalDateTime now);
+
 }

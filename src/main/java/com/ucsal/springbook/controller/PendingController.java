@@ -26,7 +26,7 @@ public class PendingController {
     @GetMapping("/pending")
     public ModelAndView pending(@AuthenticationPrincipal UserDetails user) {
         ModelAndView pending = new ModelAndView("pending");
-        List<Booking> bookings = bookingService.findAll();
+        List<Booking> bookings = bookingService.findPending();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         boolean isAdmin = authentication.getAuthorities().stream()
@@ -45,15 +45,16 @@ public class PendingController {
         return "redirect:/pending";
     }
 
-    @GetMapping("save/{id}")
-    public String save(@PathVariable("id") Long id, RedirectAttributes attributes) {
+    @GetMapping("approve/{id}")
+    public String approve(@PathVariable("id") Long id, RedirectAttributes attributes) {
         Optional<Booking> booking = bookingService.findById(id);
         
+        System.out.println(booking.get().isApproved());
+
         if (bookingService.isBusy(booking)) {
             attributes.addFlashAttribute("message", "This lab is already busy, please, verify");
         } else {
-            bookingService.saveApproved(booking);
-            bookingService.delete(id);
+            bookingService.approveBooking(booking.get());
         }
 
         return "redirect:/pending";

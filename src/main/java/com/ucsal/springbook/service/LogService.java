@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import com.ucsal.springbook.model.ApprovedBookings;
 import com.ucsal.springbook.model.Booking;
 
 @Service
@@ -19,11 +18,4 @@ public class LogService {
         log.info("Pending inserted: {}", booking.toString());
     }
 
-    public void deletedApproved(ApprovedBookings booking) {
-        log.info("Approved removed: {}", booking.toString());
-    }
-
-    public void insertedApproved(Booking booking) {
-        log.info("Approved inserted: {}", booking.toString());
-    }
 }

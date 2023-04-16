@@ -10,34 +10,34 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ucsal.springbook.model.ApprovedBookings;
-import com.ucsal.springbook.service.ApprovedBookingsService;
+import com.ucsal.springbook.model.Booking;
+import com.ucsal.springbook.service.BookingService;
 
 @Controller
-public class SchedulesController {
+public class ApprovedController {
 
     @Autowired
-    ApprovedBookingsService approvedBookingsService;
+    BookingService bookingService;
 
-    @GetMapping("/schedules")
-    public ModelAndView schedules() {
-        ModelAndView schedules = new ModelAndView("schedules");
-        List<ApprovedBookings> bookings = approvedBookingsService.findAll();
+    @GetMapping("/approved")
+    public ModelAndView approved() {
+        ModelAndView approved = new ModelAndView("approved");
+        List<Booking> bookings = bookingService.findApproved();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         boolean isAdmin = authentication.getAuthorities().stream()
                 .anyMatch(auth -> auth.getAuthority().equals("ADMIN"));
 
-        schedules.addObject("isAdmin", isAdmin);
-        schedules.addObject("bookings", bookings);
+        approved.addObject("isAdmin", isAdmin);
+        approved.addObject("bookings", bookings);
 
-        return schedules;
+        return approved;
     }
 
     @GetMapping("deleteApproved/{id}")
     public String delete(@PathVariable("id") Long id) {
-        approvedBookingsService.delete(id);
-        return "redirect:/schedules";
+        bookingService.delete(id);
+        return "redirect:/approved";
     }
 
 }

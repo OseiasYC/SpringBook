@@ -9,10 +9,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "books")
+@Table(name = "booking")
 public class Booking implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,14 +23,16 @@ public class Booking implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne
     @JoinColumn(nullable = false)
-    private String professor;
+    private Professor professor;
 
-    @Column(nullable = false)
-    private String subject;
+    @OneToOne
+    private Subject subject;
 
-    @JoinColumn(nullable = false)
-    private String lab;
+    @ManyToOne
+    @JoinColumn(name = "lab_id")
+    private Lab lab;
 
     @Column(nullable = false)
     private LocalDateTime timeRequest;
@@ -38,6 +42,9 @@ public class Booking implements Serializable {
 
     @Column(nullable = false)
     private LocalDateTime timeFinal;
+
+    @Column(nullable = false)
+    private boolean approved;
 
     public static long getSerialversionuid() {
         return serialVersionUID;
@@ -51,11 +58,11 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public String getProfessor() {
+    public Professor getProfessor() {
         return professor;
     }
 
-    public void setProfessor(String professor) {
+    public void setProfessor(Professor professor) {
         this.professor = professor;
     }
 
@@ -67,19 +74,19 @@ public class Booking implements Serializable {
         this.timeRequest = timeRequest;
     }
 
-    public String getSubject() {
+    public Subject getSubject() {
         return subject;
     }
 
-    public void setSubject(String subject) {
+    public void setSubject(Subject subject) {
         this.subject = subject;
     }
 
-    public String getLab() {
+    public Lab getLab() {
         return lab;
     }
 
-    public void setLab(String lab) {
+    public void setLab(Lab lab) {
         this.lab = lab;
     }
 
@@ -99,9 +106,17 @@ public class Booking implements Serializable {
         this.timeFinal = timeFinal;
     }
 
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
     @Override
     public String toString() {
         return timeRequest + " | " + lab + " | " + timeInit + " - " + timeFinal + " | " + professor + " | " + subject;
     }
-
+    
 }

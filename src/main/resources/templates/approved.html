@@ -18,9 +18,9 @@
         <div>
             <h1 style="margin: 0px;">SpringBook</h1>
             <p class="soft-messages">UCSal labs booking</p>
-            <a href="/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bookmark fa-lg"
+            <a href="/" rel="noopener noreferrer"><i class="fa-solid fa-bookmark fa-lg"
                     style="color: #86b0f0;"></i></a>
-            <a href="/pending" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-bookmark fa-lg" style="color: #86b0f0;"></i></a>
+            <a href="/pending" rel="noopener noreferrer"><i class="fa-regular fa-bookmark fa-lg" style="color: #86b0f0;"></i></a>
         </div>
     </header>
     <section>
@@ -39,11 +39,11 @@
             </thead>
             <tbody>
                 <tr th:each="booking : ${bookings}">
-                    <td th:text="${booking.lab}"></td>
+                    <td th:text="${booking.lab.lami + ' (' + booking.lab.location + ')'}"></td>
                     <td th:text="${#temporals.format(booking.timeInit, 'dd/MM/yyyy')}"></td>
                     <td th:text="${#temporals.format(booking.timeInit, 'HH:mm')} + ' - ' + ${#temporals.format(booking.timeFinal, 'HH:mm')}"></td>
-                    <td th:text="${booking.professor}"></td>
-                    <td th:text="${booking.subject}"></td>
+                    <td th:text="${booking.professor.name}"></td>
+                    <td th:text="${booking.subject.name}"></td>
                     <td th:if="${isAdmin}"><form th:action="@{/deleteApproved/{id}(id=${booking.id})}" method="get" onsubmit="return confirm('Have you sure to delete?');">
                         <button class="btn btn-primary"><i class="fa-solid fa-xmark fa-xs" style="color: #ffffff;"></i></button></form></td>
                 </tr>

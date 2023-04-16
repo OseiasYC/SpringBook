@@ -10,7 +10,6 @@ import com.ucsal.springbook.repository.LabRepository;
 
 @Service
 public class LabService {
-
     @Autowired
     private LabRepository labRepository;
 
@@ -18,7 +17,9 @@ public class LabService {
         return labRepository.getLabs();
     }
 
-    public void save(Lab lab) {
-        labRepository.save(lab);
+    public Lab getLab(String location) {
+        location = location.replaceAll(".*?\\((.*?)\\).*?", "$1");
+        System.out.println(location);
+        return labRepository.getLab(location).get();
     }
 }

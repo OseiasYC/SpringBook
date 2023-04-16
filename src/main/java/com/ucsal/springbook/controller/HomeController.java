@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ucsal.springbook.service.BookingService;
 import com.ucsal.springbook.service.LabService;
-import com.ucsal.springbook.service.ProfessorService;
+import com.ucsal.springbook.service.SubjectService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -24,7 +24,7 @@ public class HomeController {
     private LabService labService;
 
     @Autowired
-    private ProfessorService professorService;
+    private SubjectService subjectService;
 
     @Autowired
     private BookingService bookingService;
@@ -34,7 +34,7 @@ public class HomeController {
         ModelAndView home = new ModelAndView("home");
         
         List<String> labs = labService.getLabs();
-        List<String> subjects = professorService.getSubjects(user.getUsername());
+        List<String> subjects = subjectService.getSubjectsByLogin(user.getUsername());
 
         home.addObject("subjects", subjects);
         home.addObject("labs", labs);
@@ -44,14 +44,14 @@ public class HomeController {
 
     @PostMapping("/save")
     public String save(HttpServletRequest request, @AuthenticationPrincipal UserDetails user, RedirectAttributes attributes) {
-        String professor = professorService.getName(user.getUsername());
+        String login = user.getUsername();
         String lab = request.getParameter("inputLab");
         String subject = request.getParameter("inputSubject");
         String date = request.getParameter("datepicker");
         String timeInit = request.getParameter("initial-time");
         String timeFinal = request.getParameter("final-time");
 
-        bookingService.save(professor, subject, lab, date, timeInit, timeFinal);
+        bookingService.save(login, subject, lab, date, timeInit, timeFinal);
 
         attributes.addFlashAttribute("message", "Submitted for verification");
 

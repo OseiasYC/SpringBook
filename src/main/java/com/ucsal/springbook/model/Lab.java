@@ -1,12 +1,19 @@
 package com.ucsal.springbook.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "lab")
 public class Lab {
 
     private static final long serialVersionUID = 1L;
@@ -29,6 +36,9 @@ public class Lab {
 
     @Column(nullable = false)
     private String location;
+
+    @OneToMany(mappedBy = "lab", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Booking> bookings = new ArrayList<>();
 
     public static long getSerialversionuid() {
         return serialVersionUID;
@@ -80,6 +90,14 @@ public class Lab {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public List<Booking> getBooking() {
+        return bookings;
+    }
+
+    public void setBooking(List<Booking> booking) {
+        this.bookings = booking;
     }
 
 }

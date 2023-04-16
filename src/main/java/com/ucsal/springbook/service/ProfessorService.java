@@ -1,7 +1,5 @@
 package com.ucsal.springbook.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +16,7 @@ public class ProfessorService {
         professorRepository.save(professor);
     }
 
-    public List<String> getSubjects(String login) {
-        return professorRepository.getSubjects(login);
-    }
-
-    public String getName(String login) {
-        return professorRepository.getName(login);
+    public Professor getProfessorByLogin(String login){
+        return professorRepository.getProfessorByLogin(login).get();
     }
 }
