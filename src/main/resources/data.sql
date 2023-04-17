@@ -26,10 +26,10 @@ VALUES ('Lógica de Prog. e Algoritmos', 'fernando'), ('Arquitetura de Software'
 
 -- BOOKINGS:
 INSERT INTO booking (approved, lab_id, professor_id, subject_id, time_request, time_init, time_final) 
-VALUES (false, 1, 2, 2, CURRENT_TIMESTAMP AT TIME ZONE 'UTC','2023-10-20T09:00:00'::timestamp without time zone, '2023-10-20T09:30:00'::timestamp without time zone);
+VALUES (false, 1, 2, 5, CURRENT_TIMESTAMP AT TIME ZONE 'UTC','2023-10-20T09:00:00'::timestamp without time zone, '2023-10-20T09:30:00'::timestamp without time zone);
 
 INSERT INTO booking (approved, lab_id, professor_id, subject_id, time_request, time_init, time_final) 
-VALUES (false, 1, 2, 2, CURRENT_TIMESTAMP AT TIME ZONE 'UTC','2023-10-20T09:00:00'::timestamp without time zone, '2023-10-20T09:30:00'::timestamp without time zone);
+VALUES (false, 1, 2, 6, CURRENT_TIMESTAMP AT TIME ZONE 'UTC','2023-10-20T09:00:00'::timestamp without time zone, '2023-10-20T09:30:00'::timestamp without time zone);
 
 INSERT INTO booking (approved, lab_id, professor_id, subject_id, time_request, time_init, time_final) 
 VALUES (true, 11, 1, 3, CURRENT_TIMESTAMP AT TIME ZONE 'UTC','2023-10-20T09:00:00'::timestamp without time zone, '2023-10-20T09:30:00'::timestamp without time zone);
