@@ -1,13 +1,44 @@
-# SpringBook 📅
 
-### 🇺🇸 ENG-US: 
-Springboot project for management and booking of rooms and labs.
-The main objective is to organize the booking of rooms at the university.
-Teachers will be able to book a room when it becomes available at the chosen time.
-Initially, it is a project for the use of professors of BES and ADS courses.
+# SpringBook v2
+![banner](https://github.com/OseiasYC/SpringBook/blob/main/banner.png)
 
-### 🇧🇷 PT-BR:
-Projeto Springboot para administração e reservas de salas e laboratórios.
-O objetivo principal é organizar a reserva de salas da universidade.
-Os professores poderão reservar uma sala quando ela estiver disponível no horário escolhido.
-Inicialmente, é um projeto para uso dos professores dos cursos de BES e ADS.
+Springboot project for managing and booking labs.
+The main objective is to organize the reservation of laboratories at the university.
+Teachers will be able to book a lab when it becomes available at the chosen time.
+
+### Technologies and dependencies (A-Z):
+* Bootstrap
+* Flatpickr
+* Java JDK 17
+* PostgreSQL
+* Spring Boot 3.0.4
+* Spring Boot DevTools
+* Spring Boot Starter Data JPA
+* Spring Boot Starter Security
+* Spring Boot Starter Test
+* Spring Boot Starter Thymeleaf
+* Spring Boot Starter Web
+* Spring Security Test
+
+### Bussiness rules:
+1. Labs with status false (unavailable) in the database are not displayed on front-end
+
+2. The disciplines of each professor are redeemed in the bank to be displayed
+
+3. The user cannot select past dates and times even if time passes and there is a past time on the input
+
+4. If the current time equals the end time of a cell, it is deleted
+
+5. User will not be able to make reservations if JS is disabled
+
+6. A log file is generated with approval history, approvals and disapprovals
+
+7. User can't book busy labs
+
+8. It has two roles: admin and user. Admins and users can book labs, but only admin can manage bookings
+
+### Documents
+[Document C4 and Class diagram (PT-BR)](https://drive.google.com/file/d/1q-UWTaZNDym0gYJlheUn81lNEdjaPh-z/view?usp=share_link)
+
+---
+ _Build with ❤️ by YC - [MIT](https://github.com/OseiasYC/SpringBook/blob/main/LICENSE)._
