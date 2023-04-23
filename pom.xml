@@ -6,13 +6,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.4</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>2.0</version>
+		<relativePath />
 	</parent>
-	<groupId>com.ucsal.springlab</groupId>
-	<artifactId>springlab</artifactId>
+	<groupId>com.ucsal.springbook</groupId>
+	<artifactId>springbook</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springlab</name>
+	<name>springbook</name>
 	<description>Springboot project for management, booking of rooms and labs.</description>
 	<properties>
 		<java.version>17</java.version>
