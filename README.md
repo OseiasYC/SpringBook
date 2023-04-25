@@ -41,4 +41,4 @@ Teachers will be able to book a lab when it becomes available at the chosen time
 [Document C4 and Class diagram (PT-BR)](https://drive.google.com/file/d/1q-UWTaZNDym0gYJlheUn81lNEdjaPh-z/view?usp=share_link)
 
 ---
- _Build with ❤️ by YC - [MIT](https://github.com/OseiasYC/SpringBook/blob/main/LICENSE)._
+ _Build with ❤️ - [MIT](https://github.com/OseiasYC/SpringBook/blob/main/LICENSE)._
