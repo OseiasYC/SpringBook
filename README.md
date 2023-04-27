@@ -10,6 +10,7 @@ Teachers will be able to book a lab when it becomes available at the chosen time
 * Bootstrap
 * Flatpickr
 * Java JDK 17
+* JavaScript (JQuery)
 * PostgreSQL
 * Spring Boot 3.0.4
 * Spring Boot DevTools
