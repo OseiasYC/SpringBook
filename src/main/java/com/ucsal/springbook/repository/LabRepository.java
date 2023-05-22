@@ -12,7 +12,7 @@ import com.ucsal.springbook.model.Lab;
 @Repository
 public interface LabRepository extends JpaRepository<Lab, Long>{
     
-    @Query("SELECT CONCAT(lami, ' (', location, ')') AS lami_location FROM Lab WHERE status != 'false'")
+    @Query(value = "SELECT CONCAT(lami, ' (', location, ')') AS lami_location FROM Lab WHERE status != 'false'", nativeQuery = true)
     List<String> getLabs();
     
     @Query(value = "SELECT * FROM lab WHERE location = ?1", nativeQuery = true)
