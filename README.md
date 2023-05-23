@@ -9,8 +9,9 @@ Teachers will be able to book a lab when it becomes available at the chosen time
 ### Technologies and dependencies (A-Z):
 * Bootstrap
 * Flatpickr
-* Java JDK 17
+* Java 17
 * JavaScript (jQuery)
+* Log4j2
 * PostgreSQL
 * Spring Boot 3.0.4
 * Spring Boot DevTools
