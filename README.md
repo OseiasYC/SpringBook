@@ -39,7 +39,8 @@ Teachers will be able to book a lab when it becomes available at the chosen time
 
 8. It has two roles: admin and user. Admins and users can book labs, but only admin can manage bookings
 
-### Documents
+### About:
+[SpringBook v3 - The microservice version](https://github.com/OseiasYC/SpringBook-v3)
 [Document C4 and Class diagram (PT-BR)](https://drive.google.com/file/d/1q-UWTaZNDym0gYJlheUn81lNEdjaPh-z/view?usp=share_link)
 
 ---
