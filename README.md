@@ -42,7 +42,7 @@ Teachers will be able to book a lab when it becomes available at the chosen time
 ### About:
 [SpringBook v3 - The microservice version](https://github.com/OseiasYC/SpringBook-v3)
 
-[Document C4 and Class diagram (PT-BR)](https://drive.google.com/file/d/1q-UWTaZNDym0gYJlheUn81lNEdjaPh-z/view?usp=share_link)
+[Document C4 and Class diagram (PT-BR)](https://github.com/OseiasYC/SpringBook/blob/main/SpringBook%20v2.pdf)
 
 ---
  _Build with ❤️ - [MIT](https://github.com/OseiasYC/SpringBook/blob/main/LICENSE)._
