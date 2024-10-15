@@ -27,7 +27,7 @@ public class Booking implements Serializable {
     @JoinColumn(nullable = false)
     private Professor professor;
 
-    @OneToOne
+    @ManyToOne
     private Subject subject;
 
     @ManyToOne
